@@ -70,8 +70,21 @@ public class CareerShipController {
 		        model.addAttribute("MyAccount", eRegis.eCompanyName);
 			    if(employerServie.processReg(eRegis.eName, eRegis.ePassword, eRegis.eCompanyName, eRegis.ePhone ))
 			    	  return "hp";
-			    return "error";
+			    return "redirect:/regfailedE";
 		    }
+		    
+
+			@RequestMapping(value="/regfailedE",	method	=	RequestMethod.GET)
+			public	ModelAndView employerRegerror(Model	model)	{
+
+					//model.addAttribute("error",	"true");
+					ModelAndView modelAndView = new ModelAndView("employerreg", "eRegis", new EmployerRegistration());
+
+					modelAndView.addObject("errorE", "true");
+					return modelAndView;
+				}
+
+
 	
 	
 	

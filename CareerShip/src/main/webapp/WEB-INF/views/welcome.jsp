@@ -18,7 +18,8 @@
 </style>
 <body>
 <div id="fullscreen_bg"> 
-Success
+Success  : ${JobSeekerEmail}
+ 
 </div>
 </body>
 </html>

@@ -1,4 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -113,6 +115,11 @@ CAREERSHIP
 
 <div class="container">
   <h2>Job Seeker Registration</h2>
+    <c:if	test="${not empty errorJ}">
+  <div	class="alert	alert-danger">
+  Email already exist<br/>
+</div>
+  </c:if>
   <form:form modelAttribute="jRegis" action="/regdone" method="POST">
 	
 	

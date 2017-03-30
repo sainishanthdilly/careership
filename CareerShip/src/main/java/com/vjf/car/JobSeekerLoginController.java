@@ -10,11 +10,15 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionAttributeStore;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.vjf.service.JobSeekerService;
 
 @Controller
+@SessionAttributes("JobSeekerEmail")
 public class JobSeekerLoginController {
 	
 	@Autowired
@@ -40,8 +44,10 @@ public class JobSeekerLoginController {
 	    public String submit(@Valid @ModelAttribute("jLogin")	
 	    JobSeekerLogin	jlogin,BindingResult result, ModelMap model) {
 		    
+            
+		  model.addAttribute("JobSeekerEmail", jlogin.jName);		  
 		      if(jobSeekerService.processLogin(jlogin.jName, jlogin.jPassword))
-		    	  return "welcome";
+		    	  return "forward:/vjf/welcome";
 		  
 	        return "redirect:/loginfailed";
 	    }
@@ -58,7 +64,18 @@ public class JobSeekerLoginController {
 	        model.addAttribute("MyAccount", jRegis.jFirstName);
 		    if(jobSeekerService.processReg(jRegis.jEmail, jRegis.jPassword ,jRegis.jFirstName, jRegis.jMiddleName, jRegis.jLastName ))
 		    	  return "hp";
-		    return "error";
+		    return "redirect:/regfailedJ";
 	    }
+	    
+	    
+
+		@RequestMapping(value="/regfailedJ",	method	=	RequestMethod.GET)
+		public	ModelAndView regerrorJ(Model	model)	{
+
+				ModelAndView modelAndView =new ModelAndView("jobseekerreg", "jRegis", new JobSeekerRegistration());
+				modelAndView.addObject("errorJ", "true");
+				return modelAndView;
+		}
+
 
 }
