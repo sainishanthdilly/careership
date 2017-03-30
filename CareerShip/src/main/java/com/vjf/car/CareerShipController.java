@@ -18,6 +18,8 @@ import com.vjf.service.EmployerService;
 import com.vjf.service.JobSeekerService;
 
 
+//Controller
+
 @Controller
 public class CareerShipController {
 	
