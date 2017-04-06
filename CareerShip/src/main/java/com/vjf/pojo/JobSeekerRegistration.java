@@ -1,12 +1,12 @@
-package com.vjf.car;
+package com.vjf.pojo;
 
 public class JobSeekerRegistration {
 	
-	String jEmail;
-	String jPassword;
-	String jFirstName;
-	String jMiddleName;
-	String jLastName;
+	public String jEmail;
+	public String jPassword;
+	public String jFirstName;
+	public String jMiddleName;
+	public String jLastName;
 	public String getjEmail() {
 		return jEmail;
 	}

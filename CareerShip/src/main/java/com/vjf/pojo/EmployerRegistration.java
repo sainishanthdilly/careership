@@ -1,11 +1,11 @@
-package com.vjf.car;
+package com.vjf.pojo;
 
 public class EmployerRegistration {
 	
-	String eName;
-	String ePassword;
-	String eCompanyName;
-	long ePhone;
+	public String eName;
+	public String ePassword;
+	public String eCompanyName;
+	public long ePhone;
 	@Override
 	public int hashCode() {
 		final int prime = 31;

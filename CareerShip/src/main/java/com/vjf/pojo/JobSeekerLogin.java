@@ -1,9 +1,9 @@
-package com.vjf.car;
+package com.vjf.pojo;
 
 public class JobSeekerLogin {
 	
-	String jName;
-	String jPassword;
+	public String jName;
+	public String jPassword;
 
 	
 	

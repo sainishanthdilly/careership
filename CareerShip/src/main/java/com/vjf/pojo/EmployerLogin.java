@@ -1,8 +1,8 @@
-package com.vjf.car;
+package com.vjf.pojo;
 
 public class EmployerLogin {
-	String eName;
-	String ePassword;
+	public String eName;
+	public String ePassword;
 	
 	@Override
 	public String toString() {
