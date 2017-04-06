@@ -127,7 +127,7 @@ CAREERSHIP
     </div>
       
 	  
-    </br>
+    <br />
     <div class="form-group">
 	<div class="input-group">
       <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
@@ -146,7 +146,7 @@ CAREERSHIP
   this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
 " placeholder="Confirm password">
     </div>
-	<div>
+	</div>
 	
 	<div class="form-group">
       <label for="num">Phone number:<span class="form-required">

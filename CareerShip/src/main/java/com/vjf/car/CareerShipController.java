@@ -10,17 +10,21 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.vjf.Repository.ImpJobSeekerRepository;
 import com.vjf.car.model.JobSeekerLoginPojo;
+import com.vjf.pojo.EmployerLogin;
+import com.vjf.pojo.EmployerRegistration;
 import com.vjf.service.EmployerService;
 import com.vjf.service.JobSeekerService;
 
 
-//Controllermn
 
 @Controller
+@SessionAttributes("EmployerEmail")
+
 public class CareerShipController {
 	
 	@Autowired
@@ -46,7 +50,7 @@ public class CareerShipController {
 	    @RequestMapping(value = "/vjf/employerlogin", method = RequestMethod.GET)
 		    public ModelAndView showEmployerForm() {
 	        
-			
+	  	
 		        return new ModelAndView("employerlogin", "eLogin", new EmployerLogin());
 		 }
 		   
@@ -55,8 +59,12 @@ public class CareerShipController {
 		    EmployerLogin elogin,BindingResult result, ModelMap model) {
 		    
 			      if(employerServie.processLogin(elogin.eName, elogin.ePassword))
-			    	  return "welcome";
+			    	  {
+			    	  
+			    	  model.addAttribute("EmployerEmail",elogin.eName);
+			    	  return "forward:/vjf/employer/postjobs";
 			  
+			    	  }
 		        return "redirect:/loginfailedE";
 		    }
 		    
@@ -85,9 +93,6 @@ public class CareerShipController {
 					modelAndView.addObject("errorE", "true");
 					return modelAndView;
 				}
-
-
-	
 	
 	
 }

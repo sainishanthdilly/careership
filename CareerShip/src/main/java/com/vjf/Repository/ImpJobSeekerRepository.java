@@ -10,19 +10,14 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Repository;
 
 import com.vjf.car.model.JobSeekerLoginPojo;
+import com.vjf.conn.ConnectionFact;
 
 
 
 @Repository
 public class ImpJobSeekerRepository implements JobSeekerRepository{
 
-	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-	static final String DB_URL = "jdbc:mysql://localhost/VJF";
-
-
-	static final String USER = "root";
-	static final String PASS = "root";
-	
+		
 	ArrayList<JobSeekerLoginPojo> arrayList;
 
 	public Connection conn = null;
@@ -31,19 +26,9 @@ public class ImpJobSeekerRepository implements JobSeekerRepository{
 
 	public ImpJobSeekerRepository() {
 		
-		try {
-			Class.forName(JDBC_DRIVER);
-			conn = DriverManager.getConnection(DB_URL,USER , PASS);
-				
-			
-			
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		 ConnectionFact.GetConn.setConnection1();
+		 conn = ConnectionFact.GetConn.getConnection();
+
 	
 		
 		
@@ -51,19 +36,9 @@ public class ImpJobSeekerRepository implements JobSeekerRepository{
 	
 	 public void setConnection(String Mockurl){
 		 
-		 try{ 
-			 Class.forName(JDBC_DRIVER);
-				conn = DriverManager.getConnection(Mockurl,USER , PASS);
-					
-				
-				
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		 ConnectionFact.GetConn.setConnectionMock(Mockurl);
+			conn = ConnectionFact.GetConn.getConnection();
+			
 		
 
 		 

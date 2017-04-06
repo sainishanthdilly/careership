@@ -9,17 +9,11 @@ import java.sql.SQLException;
 import org.springframework.stereotype.Repository;
 
 import com.vjf.car.model.EmployerLoginPojo;
+import com.vjf.conn.ConnectionFact;
 
 @Repository
 public class ImpEmployerRepository implements EmployerRepository {
-	
-	 final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-	 final String DB_URL = "jdbc:mysql://localhost/VJF";
-
-
-	 final String USER = "root";
-	 final String PASS = "root";
-	 
+		 
 	 public Connection conn = null;
 	 PreparedStatement stmt = null;
 	 ResultSet rs=null;
@@ -30,21 +24,10 @@ public class ImpEmployerRepository implements EmployerRepository {
 	 
 	 public void setConnection(String Mockurl){
 		 
-		 try{ 
-			 Class.forName(JDBC_DRIVER);
-				conn = DriverManager.getConnection(Mockurl,USER , PASS);
-					
-				
-				
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		 
+		ConnectionFact.GetConn.setConnectionMock(Mockurl);
+		conn = ConnectionFact.GetConn.getConnection();
 		
-
 		 
 		 
 	 }
@@ -53,21 +36,9 @@ public class ImpEmployerRepository implements EmployerRepository {
 
 	 public ImpEmployerRepository() {
 		// TODO Auto-generated constructor stub
-		try{ 
-		 Class.forName(JDBC_DRIVER);
-			conn = DriverManager.getConnection(DB_URL,USER , PASS);
+		 ConnectionFact.GetConn.setConnection1();
+		 conn = ConnectionFact.GetConn.getConnection();
 				
-			
-			
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	
-	
 	 
 	 }
 

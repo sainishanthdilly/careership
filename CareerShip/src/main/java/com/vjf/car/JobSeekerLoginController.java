@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionAttributeStore;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.vjf.pojo.JobSeekerLogin;
+import com.vjf.pojo.JobSeekerRegistration;
 import com.vjf.service.JobSeekerService;
 
 @Controller
@@ -23,7 +25,6 @@ public class JobSeekerLoginController {
 	
 	@Autowired
 	JobSeekerService jobSeekerService ;
-	
 
 	@RequestMapping(value="/loginfailed",	method	=	RequestMethod.GET)
 	public	ModelAndView loginerror(Model	model)	{
@@ -47,7 +48,7 @@ public class JobSeekerLoginController {
             
 		  model.addAttribute("JobSeekerEmail", jlogin.jName);		  
 		      if(jobSeekerService.processLogin(jlogin.jName, jlogin.jPassword))
-		    	  return "forward:/vjf/welcome";
+		    	  return "forward:/vjf/jobseek/applyjobs";
 		  
 	        return "redirect:/loginfailed";
 	    }
@@ -66,8 +67,6 @@ public class JobSeekerLoginController {
 		    	  return "hp";
 		    return "redirect:/regfailedJ";
 	    }
-	    
-	    
 
 		@RequestMapping(value="/regfailedJ",	method	=	RequestMethod.GET)
 		public	ModelAndView regerrorJ(Model	model)	{
