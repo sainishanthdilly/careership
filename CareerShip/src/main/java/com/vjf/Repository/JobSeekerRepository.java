@@ -8,6 +8,8 @@ public interface JobSeekerRepository {
 	
 	public boolean getUser(String uname, String password);
 	
+	public void verifyEmail(String email);
+	
 	
 	
 

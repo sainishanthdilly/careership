@@ -46,7 +46,7 @@ public class ImplEmployerJobPostService implements EmployerJobPostService {
 	@Override
 	public boolean processdeleteJobPost(long job_post_id) {
 		// TODO Auto-generated method stub
-		return false;
+		return employerJobPostRepository.deleteJobPost(job_post_id);
 	}
 
 }

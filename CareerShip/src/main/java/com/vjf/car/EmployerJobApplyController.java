@@ -20,6 +20,7 @@ import com.vjf.service.EmployerJobPostService;
 
 @Controller
 @SessionAttributes("EmployerEmail")
+
 public class EmployerJobApplyController {
 	
 	@Autowired
@@ -29,10 +30,19 @@ public class EmployerJobApplyController {
 	String getEmployeeJobPostPage(ModelMap mp,HttpSession session){
 		mp.clear();
 
+		
+		return "employer_hp";
+	}
+	
+	@RequestMapping(value="/vjf/employer/postjobspage")
+	String employeeJobPostPage(ModelMap mp,HttpSession session){
+		mp.clear();
+
 		mp.addAttribute("employerjobs",employerJobPostService.processGetJobPosts(session.getAttribute("EmployerEmail").toString()));
 	
 		return "employerjobpost";
 	}
+
 	
 	@RequestMapping(value="/vjf/employer/addpostjobs")
 	ModelAndView addJobsPostPage(ModelMap mp){
@@ -47,7 +57,7 @@ public class EmployerJobApplyController {
 		
 		employerJobPostService.processAddJobPosts(eJob.getDesc(), eJob.getTitle(), eJob.getLocation(),session.getAttribute("EmployerEmail").toString());
 		
-		return "redirect:/vjf/employer/postjobs";
+		return "redirect:/vjf/employer/postjobspage";
 	}
 	
 	
@@ -56,9 +66,12 @@ public class EmployerJobApplyController {
 	@RequestMapping(value="/vjf/employer/deletejobs", method =RequestMethod.GET)
 	String deleteJobPost(@RequestParam("post_job_id") String id){
 		
+		employerJobPostService.processdeleteJobPost(Long.parseLong(id));
 		
-		return "redirect:/vjf/employer/postjobs";
+		return "redirect:/vjf/employer/postjobspage";
 	}
+	
+	
 	
 	
 	

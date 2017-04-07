@@ -79,7 +79,19 @@ public class CareerShipController {
 		    EmployerRegistration eRegis,BindingResult result, ModelMap model) {
 		        model.addAttribute("MyAccount", eRegis.eCompanyName);
 			    if(employerServie.processReg(eRegis.eName, eRegis.ePassword, eRegis.eCompanyName, eRegis.ePhone ))
-			    	  return "hp";
+			    {   
+			    	  
+			    	model.addAttribute("EmployerEmail",eRegis.eName);
+			    	try{
+			    	employerServie.sendEmail(eRegis.eName, eRegis.eName);
+			    	}
+			    	catch(Exception e){
+			    		System.out.println("Cannot Send Email ");
+			    		e.printStackTrace();
+			    	}
+			    	return "hp";
+			    
+			    }
 			    return "redirect:/regfailedE";
 		    }
 		    

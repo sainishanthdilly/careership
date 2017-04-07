@@ -23,12 +23,8 @@ public class ImpEmployerRepository implements EmployerRepository {
 	 }
 	 
 	 public void setConnection(String Mockurl){
-		 
-		 
 		ConnectionFact.GetConn.setConnectionMock(Mockurl);
 		conn = ConnectionFact.GetConn.getConnection();
-		
-		 
 		 
 	 }
 
@@ -48,14 +44,13 @@ public class ImpEmployerRepository implements EmployerRepository {
 		// TODO Auto-generated method stub
 		try{
 			
-			stmt = conn.prepareStatement(" insert into Employer_login values (?,?,?,?) ");
+			stmt = conn.prepareStatement(" insert into Employer_login(email,password,company_name,phone) values (?,?,?,?) ");
 			
 			
 			stmt.setString(1,  employerLoginPojo.getEmail());
 			stmt.setString(2, employerLoginPojo.getPassword());
 			stmt.setString(3,  employerLoginPojo.getCompany_name());
 			stmt.setLong(4, employerLoginPojo.getPhone());
-			
 			
 			int r= stmt.executeUpdate();
 			
@@ -69,9 +64,6 @@ public class ImpEmployerRepository implements EmployerRepository {
 			catch (Exception e) {
 				e.printStackTrace();
 			}
-
-
-		
 		return false;
 	}
 	
@@ -109,6 +101,24 @@ public class ImpEmployerRepository implements EmployerRepository {
 
 		
 		return false;
+	}
+
+	@Override
+	public void verifyEmail(String email) {
+		// TODO Auto-generated method stub
+		try{
+			
+			stmt = conn.prepareStatement(" update Employer_login set email_verified =? where email = ? ");
+			
+			stmt.setString(1, "True");
+			stmt.setString(2, email);
+		
+			stmt.executeUpdate();
+			
+		}
+		catch (Exception e) {
+			
+		}
 	}
 
 }

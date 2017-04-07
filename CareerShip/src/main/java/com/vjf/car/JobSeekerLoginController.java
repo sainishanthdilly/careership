@@ -1,5 +1,6 @@
 package com.vjf.car;
 
+import javax.mail.MessagingException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,11 @@ public class JobSeekerLoginController {
             
 		  model.addAttribute("JobSeekerEmail", jlogin.jName);		  
 		      if(jobSeekerService.processLogin(jlogin.jName, jlogin.jPassword))
-		    	  return "forward:/vjf/jobseek/applyjobs";
+		    	  {
+		    	    
+		    	  	return "forward:/vjf/jobseek/applyjobs";
+		    	  
+		    	  }
 		  
 	        return "redirect:/loginfailed";
 	    }
@@ -63,8 +68,16 @@ public class JobSeekerLoginController {
 	    public String regDone(@Valid @ModelAttribute("jRegis")	
 	    JobSeekerRegistration	jRegis,BindingResult result, ModelMap model) {
 	        model.addAttribute("MyAccount", jRegis.jFirstName);
-		    if(jobSeekerService.processReg(jRegis.jEmail, jRegis.jPassword ,jRegis.jFirstName, jRegis.jMiddleName, jRegis.jLastName ))
-		    	  return "hp";
+		    if(jobSeekerService.processReg(jRegis.jEmail, jRegis.jPassword ,jRegis.jFirstName, jRegis.jMiddleName, jRegis.jLastName )){
+		    	
+		    	try {
+					jobSeekerService.sendEmail(jRegis.jEmail, jRegis.jEmail);
+				} catch (MessagingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		    	return "hp";
+		    }
 		    return "redirect:/regfailedJ";
 	    }
 

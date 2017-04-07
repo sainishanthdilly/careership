@@ -155,8 +155,6 @@ public class ImplEmployerJobPostRepository implements EmployerJobPostRepository 
 				e.printStackTrace();
 			}
 
-
-		
 		return employerJobPostPojos;
 
 		
@@ -169,7 +167,7 @@ public class ImplEmployerJobPostRepository implements EmployerJobPostRepository 
 		
 		try{
 			
-			stmt = conn.prepareStatement(" delete from Employer_Job_POST job_post_id = ? ");
+			stmt = conn.prepareStatement(" delete from Employer_Job_POST where job_post_id = ? ");
 			
 			
 			stmt.setLong(1,  id);

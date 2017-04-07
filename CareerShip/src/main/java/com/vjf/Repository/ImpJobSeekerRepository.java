@@ -28,9 +28,6 @@ public class ImpJobSeekerRepository implements JobSeekerRepository{
 		
 		 ConnectionFact.GetConn.setConnection1();
 		 conn = ConnectionFact.GetConn.getConnection();
-
-	
-		
 		
 	}
 	
@@ -38,9 +35,6 @@ public class ImpJobSeekerRepository implements JobSeekerRepository{
 		 
 		 ConnectionFact.GetConn.setConnectionMock(Mockurl);
 			conn = ConnectionFact.GetConn.getConnection();
-			
-		
-
 		 
 		 
 	 }
@@ -52,16 +46,13 @@ public class ImpJobSeekerRepository implements JobSeekerRepository{
 		// TODO Auto-generated method stub
 		try{
 			
-			stmt = conn.prepareStatement(" insert into JobSeeker_login values (?,?,?,?,?) ");
-			
-			
+			stmt = conn.prepareStatement(" insert into JobSeeker_login(email,password,first_name,middle_name,last_name) values (?,?,?,?,?) ");
+
 			stmt.setString(1,  jobSeekerLoginPojo.getEmail());
 			stmt.setString(2, jobSeekerLoginPojo.getPassword());
 			stmt.setString(3,  jobSeekerLoginPojo.getFirst_name());
 			stmt.setString(4, jobSeekerLoginPojo.getMiddle_name());
 			stmt.setString(5, jobSeekerLoginPojo.getLast_name());
-			
-			
 			
 			int r= stmt.executeUpdate();
 			
@@ -94,8 +85,6 @@ public class ImpJobSeekerRepository implements JobSeekerRepository{
 		stmt.setString(1, uname);
 		stmt.setString(2, password);
 		
-		
-		
 		rs= stmt.executeQuery();
 		
 		
@@ -110,6 +99,25 @@ public class ImpJobSeekerRepository implements JobSeekerRepository{
 		}
 
 		return false;
+	}
+
+	@Override
+	public void verifyEmail(String email) {
+		// TODO Auto-generated method stub
+		try{
+			
+			stmt = conn.prepareStatement(" update JobSeeker_login set email_verified =? where email = ? ");
+			
+			stmt.setString(1, "True");
+			stmt.setString(2, email);
+		
+			stmt.executeUpdate();
+			
+		}
+		catch (Exception e) {
+			
+		}
+		
 	}
 
 }
