@@ -193,7 +193,7 @@ CAREERSHIP
   <tr>
     <td><strong><u>${employerjob.title} </u></strong> </br>
 	</td>
-	<td>${employerjob.post_email}</td>
+	<td>${employerjob.company_name}</td>
     <td>${employerjob.location} </br>
     <td>${employerjob.desc}</td>
 	<td>  <button type="button"  class="btn btn-success" onclick="">Apply Now</button> </td>

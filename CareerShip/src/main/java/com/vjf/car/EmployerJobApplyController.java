@@ -29,8 +29,6 @@ public class EmployerJobApplyController {
 	@RequestMapping(value="/vjf/employer/postjobs")
 	String getEmployeeJobPostPage(ModelMap mp,HttpSession session){
 		mp.clear();
-
-		
 		return "employer_hp";
 	}
 	
@@ -59,9 +57,7 @@ public class EmployerJobApplyController {
 		
 		return "redirect:/vjf/employer/postjobspage";
 	}
-	
-	
-	
+
 	
 	@RequestMapping(value="/vjf/employer/deletejobs", method =RequestMethod.GET)
 	String deleteJobPost(@RequestParam("post_job_id") String id){
@@ -70,13 +66,6 @@ public class EmployerJobApplyController {
 		
 		return "redirect:/vjf/employer/postjobspage";
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 
 }

@@ -7,6 +7,16 @@ public class EmployerJobPostPojo {
 	String title;
 	String location;
 	String post_email;
+	String company_name;
+	
+	
+	
+	public String getCompany_name() {
+		return company_name;
+	}
+	public void setCompany_name(String company_name) {
+		this.company_name = company_name;
+	}
 	public long getPost_id() {
 		return post_id;
 	}
@@ -40,12 +50,13 @@ public class EmployerJobPostPojo {
 	@Override
 	public String toString() {
 		return "EmployerJobPostPojo [post_id=" + post_id + ", desc=" + desc + ", title=" + title + ", location="
-				+ location + ", post_email=" + post_email + "]";
+				+ location + ", post_email=" + post_email + ", company_name=" + company_name + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((company_name == null) ? 0 : company_name.hashCode());
 		result = prime * result + ((desc == null) ? 0 : desc.hashCode());
 		result = prime * result + ((location == null) ? 0 : location.hashCode());
 		result = prime * result + ((post_email == null) ? 0 : post_email.hashCode());
@@ -62,6 +73,11 @@ public class EmployerJobPostPojo {
 		if (getClass() != obj.getClass())
 			return false;
 		EmployerJobPostPojo other = (EmployerJobPostPojo) obj;
+		if (company_name == null) {
+			if (other.company_name != null)
+				return false;
+		} else if (!company_name.equals(other.company_name))
+			return false;
 		if (desc == null) {
 			if (other.desc != null)
 				return false;
@@ -86,6 +102,8 @@ public class EmployerJobPostPojo {
 			return false;
 		return true;
 	}
+	
+	
 	
 	
 	

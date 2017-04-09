@@ -45,8 +45,6 @@ public class CareerShipController {
 			return modelAndView;
 		}
 
-	    
-
 	    @RequestMapping(value = "/vjf/employerlogin", method = RequestMethod.GET)
 		    public ModelAndView showEmployerForm() {
 	        

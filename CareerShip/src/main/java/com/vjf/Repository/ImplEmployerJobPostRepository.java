@@ -114,9 +114,6 @@ public class ImplEmployerJobPostRepository implements EmployerJobPostRepository 
 
 		
 		return employerJobPostPojos;
-
-		
-		
 		
 	}
 
@@ -144,7 +141,14 @@ public class ImplEmployerJobPostRepository implements EmployerJobPostRepository 
 	        	employerJobPostPojo.setDesc(rs.getString(2));
 	        	employerJobPostPojo.setTitle(rs.getString(3));
 	        	employerJobPostPojo.setLocation(rs.getString(4));
-	        	employerJobPostPojo.setPost_email(rs.getString(5));
+	        	String em = rs.getString(5);
+	        	employerJobPostPojo.setPost_email(em);
+	        	PreparedStatement pstm = conn.prepareStatement("select company_name  from Employer_login where email =? ");
+	        	pstm.setString(1, em);
+	        	ResultSet t = pstm.executeQuery();
+	        	if(t.next()){
+	        		employerJobPostPojo.setCompany_name(t.getString(1));
+	        	}
 	        	employerJobPostPojos.add(employerJobPostPojo);
 	        	
 							

@@ -30,6 +30,7 @@ public class JobSeekerPageController {
 
 	
 	}
+
 	
 	@RequestMapping(value="/vjf/jobseek/viewjobs")
 	String getJobSeekerJobsList(ModelMap mp,HttpSession session){
