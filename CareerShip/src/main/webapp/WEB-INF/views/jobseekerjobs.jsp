@@ -151,12 +151,9 @@ CAREERSHIP
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="hp.html">Home</a></li>
-        <li><a href="/vjf/jobseekerlogin">Job Seeker Login</a></li>
-        <li><a href="/vjf/jobseekerregistration">Job Seeker Registration</a></li>
-        <li><a href="employerlogin.html">Employer Login</a></li>
-        <li><a href="employerreg.html">Employer SignUp</a></li>
-      </ul>
+        <li ><a href="/vjf/home">Home</a></li>
+        <li><a href="/vjf/jobseek/applyjobs">Job Seeker Home</a></li>
+          </ul>
       <ul class="nav navbar-nav navbar-right">
 	    <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">MyAccount 

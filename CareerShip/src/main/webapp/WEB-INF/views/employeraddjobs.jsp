@@ -92,8 +92,8 @@ CAREERSHIP
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="hp.html">Home</a></li>
-        <li class="active"><a href="add_new_row_employer.html">Post New Job</a></li>
+        <li><a href="/vjf/home">Home</a></li>
+        <li><a href="/vjf/employer/postjobs">Employer Post Jobs</a></li>
       </ul>
       
     </div>
