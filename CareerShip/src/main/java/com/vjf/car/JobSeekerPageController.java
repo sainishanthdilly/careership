@@ -30,7 +30,6 @@ public class JobSeekerPageController {
 
 	
 	}
-
 	
 	@RequestMapping(value="/vjf/jobseek/viewjobs")
 	String getJobSeekerJobsList(ModelMap mp,HttpSession session){
@@ -38,11 +37,9 @@ public class JobSeekerPageController {
 		mp.addAttribute("employerjobs",employerJobPostService.processGetALLJobPosts());
 		System.out.println(session.getAttribute("JobSeekerEmail"));
 		return "jobseekerjobs";
-
 	
+
 	}
-
-	
 	
 	
 
