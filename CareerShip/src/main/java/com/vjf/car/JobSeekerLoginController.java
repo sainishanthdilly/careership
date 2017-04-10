@@ -67,7 +67,11 @@ public class JobSeekerLoginController {
 	    @RequestMapping(value = "/regdone", method = RequestMethod.POST)
 	    public String regDone(@Valid @ModelAttribute("jRegis")	
 	    JobSeekerRegistration	jRegis,BindingResult result, ModelMap model) {
-	        model.addAttribute("MyAccount", jRegis.jFirstName);
+	     
+	    	   
+			  model.addAttribute("JobSeekerEmail", jRegis.jEmail);		  
+			 
+	    	model.addAttribute("MyAccount", jRegis.jFirstName);
 		    if(jobSeekerService.processReg(jRegis.jEmail, jRegis.jPassword ,jRegis.jFirstName, jRegis.jMiddleName, jRegis.jLastName )){
 		    	
 		    	try {
@@ -76,7 +80,7 @@ public class JobSeekerLoginController {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-		    	return "hp";
+		    	return "email_sent_jobseeker";
 		    }
 		    return "redirect:/regfailedJ";
 	    }

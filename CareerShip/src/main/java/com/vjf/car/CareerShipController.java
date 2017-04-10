@@ -87,7 +87,7 @@ public class CareerShipController {
 			    		System.out.println("Cannot Send Email ");
 			    		e.printStackTrace();
 			    	}
-			    	return "hp";
+			    	return "email_sent_emp";
 			    
 			    }
 			    return "redirect:/regfailedE";

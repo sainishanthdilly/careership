@@ -54,5 +54,4 @@ CAREERSHIP
 <div class="container">
   <h2>Your email address ${EmailSuccess} is confirmed</h2>
 
-
 </body>

@@ -40,7 +40,7 @@
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	font-size: 20px;
 	position: static;
-		color: white;
+		color: cyan ;
 		padding-bottom: 0px;
 		text-align:center;
 		//width:900px;
@@ -108,6 +108,20 @@ background-color: white;
 @keyframes mymove {
     50% {text-shadow: 10px 20px 30px blue;}
 }
+
+
+hr {
+    display: block;
+	color : cyan;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+
 	
 	
 	</style>
@@ -129,56 +143,30 @@ CAREERSHIP
 
 </div>
 </div>
+
+<hr/>
+
 	
 	
 	
 	
-	<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-	  <a class="navbar-brand" href="#">
-	  <img src= "https://thumb1.shutterstock.com/display_pic_with_logo/3278303/552246277/stock-vector-search-job-icon-one-of-set-web-icons-552246277.jpg" width=50px style = "display:inline-block;">
-	  <span style="display: inline-block;" width=50px></span>
-	  </a>
-	  
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="/vjf/home">Home</a></li>
-         </ul>
-      <ul class="nav navbar-nav navbar-right">
-	    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">MyAccount 
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="jobseekerlogin.html">Job Seeker</a></li>
-          <li><a href="employerlogin.html">Employer</a></li>
-          
-        </ul>
-      </li>
-        <li><a href="#">Logout</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
 	 
-	 
-	 <h2 id="hi">Join World's most innovative companies, who use CAREERSHIP to recruit the talent they need.</h2>
-<p id="hi"> 
-<img src ="https://charlotteagenda-charlotteagenda.netdna-ssl.com/wp-content/uploads/2016/07/charlotte-agenda-sponsors-2016.png" />
+	 <p></p>
+	 <h2 id="bye">A verification email has been sent!</h2>
+<h3 id="bye">Check your email and follow the link to finish creating your account.</h3>
+<p id="bye"> 
+<img src ="https://digitalsynopsis.com/wp-content/uploads/2015/10/gif-icons-menu-transition-animations-shake-new-mail.gif" width=500px height = 200px></img>
 </p>
+
 <p> </p>
-<p> <button type="button" class="btn btn-success" onclick="window.location.href='/vjf/employer/postjobspage'">POST A JOB</button> </p>
-</div>	
+<p> <button type="button" class="btn btn-primary" onclick="window.location.href='/vjf/mailverify/resendEmailJobSeeker'">Resend email</button> </p>
+	
 <p></p>
-	<p> <button type="button" class="btn btn-success" onclick="">Add New Row</button> </p>
+	<p> <button type="button" class="btn btn-primary" onclick="window.location.href='/vjf/home'">Home</button>
+	 <button type="button" class="btn btn-primary" onclick="window.location.href='/vjf/jobseek/applyjobs'">Go to Job Search</button>   </p>
 <p> </p>
-	 
+
+	</div> 
 	 
 	</div>
 	</div>
