@@ -222,7 +222,32 @@ public class ImplEmployerJobPostRepository implements EmployerJobPostRepository 
 		
 		
 		
-		
+		return false;
+	}
+
+	@Override
+	public boolean editJob(EmployerJobPostPojo employerjob) {
+		// TODO Auto-generated method stub
+			try{
+			
+			stmt = conn.prepareStatement(" update  Employer_Job_POST set job_desc= ? ,job_title= ?,job_location= ? where job_post_id = ? ");
+			
+			stmt.setString(1,employerjob.getDesc());
+			stmt.setString(2,employerjob.getTitle());
+			stmt.setString(3,employerjob.getLocation());
+			stmt.setLong(4, employerjob.getPost_id());
+			
+			int r= stmt.executeUpdate();
+
+			if(r > 0){
+				
+				return true;			
+			}
+	       
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
 		
 		
 		return false;

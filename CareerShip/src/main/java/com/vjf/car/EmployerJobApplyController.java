@@ -38,7 +38,8 @@ public class EmployerJobApplyController {
 
 		mp.addAttribute("employerjobs",employerJobPostService.processGetJobPosts(session.getAttribute("EmployerEmail").toString()));
 	
-		return "employerjobpost";
+		return 
+				"employerjobpost";
 	}
 
 	
@@ -74,6 +75,44 @@ public class EmployerJobApplyController {
 		
 		return "redirect:/vjf/employer/postjobspage";
 	}
+	
+	
+
+	@RequestMapping(value="/vjf/employer/editjobs12", method =RequestMethod.GET)
+	ModelAndView editJobPosts(@RequestParam("post_job_id") String id,
+			
+			@RequestParam("job_loc") String loc, @RequestParam("job_title") String title,
+			@RequestParam("job_desc") String desc){
+		
+		//employerJobPostService.processdeleteJobPost(Long.parseLong(id));
+	    ModelMap mp = new ModelMap();
+	    EmployerJobPostPojo emp= new EmployerJobPostPojo();
+	    emp.setDesc(desc);
+	    emp.setLocation(loc);
+	    emp.setTitle(title);
+	    emp.setPost_id(Long.parseLong(id));
+	    
+	 //   mp.addAttribute("editJobsE", emp);
+		return new ModelAndView("employerEditjobs","eeditjobs",emp);
+	}
+	
+
+	@RequestMapping(value="/vjf/employer/editedpostjobs", method =RequestMethod.POST)
+	String editingJobsPost(@Valid @ModelAttribute("eeditjobs")	
+    EmployerJobPostPojo eJob,BindingResult result, ModelMap model,HttpSession session){
+		
+		
+		
+		employerJobPostService.processEditJobPosts(eJob.getDesc(), eJob.getTitle(), eJob.getLocation(), eJob.getPost_id());
+		
+		return "redirect:/vjf/employer/postjobspage";
+	}
+
+	
+	
+	
+	
+	
 	
 
 }

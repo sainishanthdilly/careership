@@ -20,6 +20,8 @@ public interface EmployerJobPostService {
 	public boolean processdeleteJobPost(long job_post_id);
 	
 	public boolean check_email_Verify(String email);
+
+	public boolean processEditJobPosts(String desc, String title, String location, long post_id);
 	
 	
 }

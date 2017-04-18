@@ -103,8 +103,7 @@ public class CareerShipController {
 			@RequestMapping(value="/regfailedE",	method	=	RequestMethod.GET)
 			public	ModelAndView employerRegerror(Model	model)	{
 
-					//model.addAttribute("error",	"true");
-					ModelAndView modelAndView = new ModelAndView("employerreg", "eRegis", new EmployerRegistration());
+				    ModelAndView modelAndView = new ModelAndView("employerreg", "eRegis", new EmployerRegistration());
 
 					modelAndView.addObject("errorE", "true");
 					return modelAndView;

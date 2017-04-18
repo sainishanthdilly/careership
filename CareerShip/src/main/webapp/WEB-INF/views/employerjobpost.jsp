@@ -196,13 +196,16 @@ CAREERSHIP
   </tr>
 <c:forEach items="${employerjobs}" var="employerjob">
   <tr>
-    <td><strong> ${employerjob.title} </strong> </br>
+    <td><strong> ${employerjob.title} </strong> <br />
 	</td>
 	
-    <td>${employerjob.desc} </br>
+    <td>${employerjob.desc} <br />
     <td>${employerjob.location}</td>
-	<td>  <button type="button"  class="btn btn-primary" onclick="">Edit</button> </td>
-	<td>  <button type="button"  class="btn btn-danger" onclick="window.location.href='/vjf/employer/deletejobs?post_job_id=${employerjob.post_id}'">Delete</button> </td>
+	<td>  <button type="button"  class="btn btn-primary" 
+	onclick="window.location.href='/vjf/employer/editjobs12?post_job_id=${employerjob.post_id}&job_desc=${employerjob.desc}&job_title=${employerjob.title}&job_loc=${employerjob.location}'">Edit</button> </td>
+	<td> 
+	 <button type="button"  class="btn btn-danger" onclick="window.location.href='/vjf/employer/deletejobs?post_job_id=${employerjob.post_id}'">Delete</button> 
+	 </td>
   </tr>
 </c:forEach>  
   

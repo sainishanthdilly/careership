@@ -55,4 +55,16 @@ public class ImplEmployerJobPostService implements EmployerJobPostService {
 		return employerJobPostRepository.checkEmail_verify(email);
 	}
 
+	@Override
+	public boolean processEditJobPosts(String desc, String title, String location, long post_id) {
+		// TODO Auto-generated method stub
+		EmployerJobPostPojo employerJobPostPojo = new EmployerJobPostPojo();
+		employerJobPostPojo.setDesc(desc);
+		employerJobPostPojo.setLocation(location);
+		employerJobPostPojo.setPost_id(post_id);
+		employerJobPostPojo.setTitle(title);
+		
+		return employerJobPostRepository.editJob(employerJobPostPojo);
+	}
+
 }
