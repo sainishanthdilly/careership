@@ -13,6 +13,8 @@ public interface JobSeekerService {
 	MessagingException;
 	
 	public void verifyEmail(String email);
+	
+	public boolean checkjEmail(String email);
 
 	
 

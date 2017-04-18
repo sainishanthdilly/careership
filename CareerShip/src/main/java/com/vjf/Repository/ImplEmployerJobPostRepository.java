@@ -191,6 +191,42 @@ public class ImplEmployerJobPostRepository implements EmployerJobPostRepository 
 		
 		return false;
 	}
+
+	@Override
+	public boolean checkEmail_verify(String email) {
+		// TODO Auto-generated method stub
+		
+			try{
+			
+			stmt = conn.prepareStatement(" select email_verified from Employer_login where email = ? ");
+			
+			
+			stmt.setString(1, email);
+			
+			ResultSet rs= stmt.executeQuery();
+			
+			if(rs.next()){
+				
+				String s = rs.getString(1);
+				
+				
+			return (s.equals("False"))?false:true;
+			}
+
+			
+	        
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+		
+		
+		
+		
+		
+		
+		return false;
+	}
 	
 
 }

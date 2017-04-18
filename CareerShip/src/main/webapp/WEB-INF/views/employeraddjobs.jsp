@@ -117,7 +117,7 @@ CAREERSHIP
 	<label for="usr">Description:</label>
 		  <div class="form-group" >
 		 
-		  <form:textarea path="desc" col="50" rows="4" type="text" color="black"  class="form-control" id="usr" />
+		  <form:textarea path="desc" required="required" col="50" rows="4" type="text" color="black"  class="form-control" id="usr" />
 		 
   
 	</div>
@@ -128,7 +128,7 @@ CAREERSHIP
       <span class="input-group-addon"  ><i class="glyphicon glyphicon-home"></i></span>
       
 	  
-	  <form:input type="text" path="location"  class="form-control" id="usr" placeholder="Please enter location"></form:input>
+	  <form:input type="text" path="location" required="required" class="form-control" id="usr" placeholder="Please enter location"></form:input>
 	  
 	  
     </span> 

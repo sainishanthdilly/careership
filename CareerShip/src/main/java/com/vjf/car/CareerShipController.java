@@ -1,5 +1,6 @@
 package com.vjf.car;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,6 @@ import com.vjf.service.EmployerService;
 import com.vjf.service.JobSeekerService;
 
 
-
 @Controller
 @SessionAttributes("EmployerEmail")
 
@@ -32,7 +32,6 @@ public class CareerShipController {
 
 	@RequestMapping("/vjf/home")
 	public String homePagee(ModelMap model){
-		model.addAttribute("MyAccount", "MyAccount");
 		return "hp";
 	}
 
@@ -46,7 +45,16 @@ public class CareerShipController {
 		}
 
 	    @RequestMapping(value = "/vjf/employerlogin", method = RequestMethod.GET)
-		    public ModelAndView showEmployerForm() {
+		    public ModelAndView showEmployerForm(HttpSession session) {
+	    	
+
+	    	if(session!=null && session.getAttribute("EmployerEmail")!=null ){   
+	    	if(session.getAttribute("EmployerEmail").toString()!=null){
+	    		   return new ModelAndView("forward:/vjf/employer/postjobs");
+	    		   
+	    	   }
+	    	}
+
 	        
 	  	
 		        return new ModelAndView("employerlogin", "eLogin", new EmployerLogin());
@@ -75,7 +83,7 @@ public class CareerShipController {
 		    @RequestMapping(value = "/regdoneE", method = RequestMethod.POST)
 		    public String regDone(@Valid @ModelAttribute("eRegis")	
 		    EmployerRegistration eRegis,BindingResult result, ModelMap model) {
-		        model.addAttribute("MyAccount", eRegis.eCompanyName);
+		       // model.addAttribute("MyAccount", eRegis.eCompanyName);
 			    if(employerServie.processReg(eRegis.eName, eRegis.ePassword, eRegis.eCompanyName, eRegis.ePhone ))
 			    {   
 			    	  
@@ -92,8 +100,6 @@ public class CareerShipController {
 			    }
 			    return "redirect:/regfailedE";
 		    }
-		    
-
 			@RequestMapping(value="/regfailedE",	method	=	RequestMethod.GET)
 			public	ModelAndView employerRegerror(Model	model)	{
 

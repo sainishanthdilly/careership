@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -164,15 +166,31 @@ CAREERSHIP
       </ul>
       <ul class="nav navbar-nav navbar-right">
 	    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">${MyAccount} 
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">
+        <c:if test="${not empty EmployerEmail}">
+  			${EmployerEmail} 
+  		</c:if>
+  		<c:if test="${not empty JobSeekerEmail}">
+  			${JobSeekerEmail}
+  		</c:if>
+  		<c:if test="${empty JobSeekerEmail}">
+  		 <c:if test="${empty EmployerEmail}" >
+  			MyAccount
+  		</c:if>
+  		</c:if>
+  		
+  		
+  		<br	/>
+  		
+  		
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="jobseekerlogin.html">Job Seeker</a></li>
-          <li><a href="employerlogin.html">Employer</a></li>
+          <li><a href="/vjf/jobseekerlogin">Job Seeker</a></li>
+          <li><a href="/vjf/employerlogin">Employer</a></li>
           
         </ul>
       </li>
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+        <li><a href="/logout"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
       </ul>
     </div>
   </div>
@@ -247,7 +265,7 @@ CAREERSHIP
   
   <form class="form-inline">Looking for a job ?
     <input type="email" class="form-control" size="20" placeholder="Email Address">
-    <button type="button" class="btn btn-danger">Sign Up</button>
+    <button type="button" onClick="window.location.href='/vjf/jobseekerregistration'" class="btn btn-danger">Sign Up</button>
   </form>
 </footer>
 </body>

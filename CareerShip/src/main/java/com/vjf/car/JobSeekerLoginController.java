@@ -1,6 +1,7 @@
 package com.vjf.car;
 
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionAttributeStore;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.vjf.pojo.JobSeekerLogin;
@@ -27,6 +29,20 @@ public class JobSeekerLoginController {
 	@Autowired
 	JobSeekerService jobSeekerService ;
 
+	@RequestMapping(value="/logout")
+	public String logout(HttpSession session,WebRequest request,ModelMap model){
+		
+		model.clear();
+		//session.removeAttribute("JobSeekerEmail");
+		//session.setAttribute("JobSeekerEmail", null);
+		 request.removeAttribute("JobSeekerEmail", WebRequest.SCOPE_SESSION);
+		 request.removeAttribute("EmployerEmail", WebRequest.SCOPE_SESSION);
+			
+		
+		return "hp";
+		
+	}
+	
 	@RequestMapping(value="/loginfailed",	method	=	RequestMethod.GET)
 	public	ModelAndView loginerror(Model	model)	{
 
@@ -37,20 +53,30 @@ public class JobSeekerLoginController {
 	}
 	
     @RequestMapping(value = "/vjf/jobseekerlogin", method = RequestMethod.GET)
-	    public ModelAndView showForm() {
+	    public ModelAndView showForm(HttpSession session) {
+    	
+    	if(session!=null && session.getAttribute("JobSeekerEmail")!=null ){   
+    	if(session.getAttribute("JobSeekerEmail").toString()!=null){
+    		   return new ModelAndView("forward:/vjf/jobseek/applyjobs");
+    		   
+    	   }
+    	}
+    	  
         
 	        return new ModelAndView("jobseekerlogin", "jLogin", new JobSeekerLogin());
 	 }
 	   
 	  @RequestMapping(value = "/logindone", method = RequestMethod.POST)
 	    public String submit(@Valid @ModelAttribute("jLogin")	
-	    JobSeekerLogin	jlogin,BindingResult result, ModelMap model) {
+	    JobSeekerLogin	jlogin,BindingResult result, ModelMap model, HttpSession session) {
 		    
             
-		  model.addAttribute("JobSeekerEmail", jlogin.jName);		  
+		 // model.addAttribute("JobSeekerEmail", jlogin.jName);		  
 		      if(jobSeekerService.processLogin(jlogin.jName, jlogin.jPassword))
 		    	  {
 		    	    
+		    	  session.setAttribute("JobSeekerEmail", jlogin.jName);
+		      	
 		    	  	return "forward:/vjf/jobseek/applyjobs";
 		    	  
 		    	  }

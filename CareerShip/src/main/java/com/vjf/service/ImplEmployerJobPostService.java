@@ -49,4 +49,10 @@ public class ImplEmployerJobPostService implements EmployerJobPostService {
 		return employerJobPostRepository.deleteJobPost(job_post_id);
 	}
 
+	@Override
+	public boolean check_email_Verify(String email) {
+		// TODO Auto-generated method stub
+		return employerJobPostRepository.checkEmail_verify(email);
+	}
+
 }

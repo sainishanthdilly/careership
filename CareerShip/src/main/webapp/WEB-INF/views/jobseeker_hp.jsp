@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -159,15 +161,23 @@ CAREERSHIP
           </ul>
       <ul class="nav navbar-nav navbar-right">
 	    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">MyAccount 
-        <span class="caret"></span></a>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">
+          <c:if test="${not empty EmployerEmail}">
+  			${EmployerEmail} 
+  		</c:if>
+  		<c:if test="${not empty JobSeekerEmail}">
+  			${JobSeekerEmail}
+  			
+  		</c:if>
+        
+         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="jobseekerlogin.html">Job Seeker</a></li>
-          <li><a href="employerlogin.html">Employer</a></li>
+          <li><a href="/vjf/jobseekerlogin">Job Seeker</a></li>
+          <li><a href="/vjf/employerlogin">Employer</a></li>
           
         </ul>
       </li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="/logout">Logout</a></li>
       </ul>
     </div>
   </div>

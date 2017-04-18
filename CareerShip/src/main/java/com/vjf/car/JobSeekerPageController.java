@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.vjf.Repository.EmployerJobPostRepository;
 import com.vjf.service.EmployerJobPostService;
+import com.vjf.service.JobSeekerService;
 
 @Controller
 @SessionAttributes("JobSeekerEmail")
@@ -19,13 +20,14 @@ public class JobSeekerPageController {
 	
 	@Autowired
 	EmployerJobPostService employerJobPostService;
+	@Autowired
+	JobSeekerService jobSeekerService;
 	
 	
 	@RequestMapping(value="/vjf/jobseek/applyjobs")
 	String jobSeekerSearchPage(ModelMap mp,HttpSession session){
 		
 		mp.addAttribute("employerjobs",employerJobPostService.processGetALLJobPosts());
-		System.out.println(session.getAttribute("JobSeekerEmail"));
 		return "jobseeker_hp";
 
 	
@@ -35,11 +37,27 @@ public class JobSeekerPageController {
 	String getJobSeekerJobsList(ModelMap mp,HttpSession session){
 		
 		mp.addAttribute("employerjobs",employerJobPostService.processGetALLJobPosts());
-		System.out.println(session.getAttribute("JobSeekerEmail"));
 		return "jobseekerjobs";
-	
 
 	}
+	
+	
+	
+	@RequestMapping(value="/vjf/jobseek/verify/applyjob")
+	String jobSeekerCheckApplyJob(ModelMap mp,HttpSession session){
+		
+		if(!jobSeekerService.checkjEmail(session.getAttribute("JobSeekerEmail").toString())){
+			
+			
+			mp.addAttribute("errorc","eer");
+			
+		}
+		
+		return "forward:/vjf/jobseek/viewjobs";
+
+	
+	}
+
 	
 	
 

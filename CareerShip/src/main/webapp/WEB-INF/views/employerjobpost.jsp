@@ -157,15 +157,24 @@ CAREERSHIP
         </ul>
       <ul class="nav navbar-nav navbar-right">
 	    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">MyAccount 
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"> 
+           <c:if test="${not empty EmployerEmail}">
+  			${EmployerEmail} 
+  		</c:if>
+  		<c:if test="${not empty JobSeekerEmail}">
+  			${JobSeekerEmail}
+  			
+  		</c:if>
+  	
+        
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="jobseekerlogin.html">Job Seeker</a></li>
-          <li><a href="employerlogin.html">Employer</a></li>
+          <li><a href="/vjf/jobseekerlogin">Job Seeker</a></li>
+          <li><a href="/vjf/employerlogin">Employer</a></li>
           
         </ul>
       </li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="/logout">Logout</a></li>
       </ul>
     </div>
   </div>
@@ -202,6 +211,13 @@ CAREERSHIP
 <p></p>
 	<p> <button type="button" class="btn btn-success" onclick="window.location.href='/vjf/employer/addpostjobs'">Add New Row</button> </p>
 <p> </p>
+<c:if	test="${not empty errorc}">
+  <div	class="alert	alert-danger">
+  Please Verify your email before adding jobs<br	/>
+</div>
+  </c:if>
+  
+
 	 
 	 
 	</div>

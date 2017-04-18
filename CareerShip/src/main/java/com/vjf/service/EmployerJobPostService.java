@@ -19,5 +19,7 @@ public interface EmployerJobPostService {
 	
 	public boolean processdeleteJobPost(long job_post_id);
 	
+	public boolean check_email_Verify(String email);
+	
 	
 }

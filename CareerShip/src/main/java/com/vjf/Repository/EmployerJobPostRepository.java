@@ -13,6 +13,8 @@ public interface EmployerJobPostRepository {
 	 public List<EmployerJobPostPojo> getALLJobsPosted();
 	 
 	 public boolean deleteJobPost(long id);
+	 
+	 public boolean checkEmail_verify(String email);
 	 	
 
 }

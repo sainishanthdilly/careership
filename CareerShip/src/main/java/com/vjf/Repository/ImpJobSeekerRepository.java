@@ -120,4 +120,42 @@ public class ImpJobSeekerRepository implements JobSeekerRepository{
 		
 	}
 
+	@Override
+	public boolean checkjEmail(String email) {
+		// TODO Auto-generated method stub
+
+		try{
+		
+		stmt = conn.prepareStatement(" select email_verified from JobSeeker_login where email = ? ");
+		
+		
+		stmt.setString(1, email);
+		
+		ResultSet rs= stmt.executeQuery();
+		
+		if(rs.next()){
+			
+			String s = rs.getString(1);
+			
+		//	System.out.println(s);
+			
+		return (s.equals("False"))?false:true;
+		}
+
+		
+        
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+	
+	
+	
+	
+	
+	return false;
+
+	}
+
 }

@@ -122,6 +122,14 @@ public class ImplJobSeekerService implements JobSeekerService {
 		// TODO Auto-generated method stub
 		jobSeekerLoginRepository.verifyEmail(email);
 	}
+
+
+
+	@Override
+	public boolean checkjEmail(String email) {
+		// TODO Auto-generated method stub
+		return jobSeekerLoginRepository.checkjEmail(email);
+	}
 	
 	
 

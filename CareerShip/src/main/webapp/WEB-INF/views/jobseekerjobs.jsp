@@ -156,7 +156,14 @@ CAREERSHIP
           </ul>
       <ul class="nav navbar-nav navbar-right">
 	    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">MyAccount 
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">
+        <c:if test="${not empty EmployerEmail}">
+  			${EmployerEmail} 
+  		</c:if>
+  		<c:if test="${not empty JobSeekerEmail}">
+  			${JobSeekerEmail}
+  			
+  		</c:if> 
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="jobseekerlogin.html">Job Seeker</a></li>
@@ -164,7 +171,7 @@ CAREERSHIP
           
         </ul>
       </li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="/logout">Logout</a></li>
       </ul>
     </div>
   </div>
@@ -193,16 +200,25 @@ CAREERSHIP
 	<td>${employerjob.company_name}</td>
     <td>${employerjob.location} </br>
     <td>${employerjob.desc}</td>
-	<td>  <button type="button"  class="btn btn-success" onclick="">Apply Now</button> </td>
+	<td>  <button type="button"  class="btn btn-success" onclick="window.location.href='/vjf/jobseek/verify/applyjob'">Apply Now</button> </td>
 
   </tr>
 
 </c:forEach>
 
+<tr>
+<c:if	test="${not empty errorc}">
+  <div	class="alert	alert-danger">
+  Please Verify your email before applying jobs<br	/>
+</div>
+  </c:if>
+  
+<tr>
   
 </table>
 </div>	
-<p></p>
+<p>
+</p>
 
 <p> </p>
 	 

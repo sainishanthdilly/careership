@@ -43,8 +43,14 @@ public class EmployerJobApplyController {
 
 	
 	@RequestMapping(value="/vjf/employer/addpostjobs")
-	ModelAndView addJobsPostPage(ModelMap mp){
+	ModelAndView addJobsPostPage(ModelMap mp,HttpSession session){
 		
+		if(!employerJobPostService.check_email_Verify(session.getAttribute("EmployerEmail").toString())){
+			
+			mp.addAttribute("errorc","er");
+			return new ModelAndView("employerjobpost");
+			
+		}
 		
 		return new ModelAndView("employeraddjobs","eJobsPost",new EmployerJobPostPojo());
 	}
@@ -52,6 +58,8 @@ public class EmployerJobApplyController {
 	@RequestMapping(value="/vjf/employer/addedpostjobs", method =RequestMethod.POST)
 	String addJobsPost(@Valid @ModelAttribute("eJobsPost")	
     EmployerJobPostPojo eJob,BindingResult result, ModelMap model,HttpSession session){
+		
+		
 		
 		employerJobPostService.processAddJobPosts(eJob.getDesc(), eJob.getTitle(), eJob.getLocation(),session.getAttribute("EmployerEmail").toString());
 		
