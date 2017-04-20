@@ -131,10 +131,7 @@ CAREERSHIP
 
 </div>
 </div>
-	
-	
-	
-	
+
 	<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -147,13 +144,13 @@ CAREERSHIP
 	  <img src= "https://thumb1.shutterstock.com/display_pic_with_logo/3278303/552246277/stock-vector-search-job-icon-one-of-set-web-icons-552246277.jpg" width=50px style = "display:inline-block;">
 	  <span style="display: inline-block;" width=50px></span>
 	  </a>
-	  
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="/vjf/home">Home</a></li>
         <li><a href="/vjf/employer/postjobs">Employer Post Jobs</a></li>
-        
+        <li><a href="/vjf/job/backgroudinfo">Background information</a></li>
+      
         </ul>
       <ul class="nav navbar-nav navbar-right">
 	    <li class="dropdown">
