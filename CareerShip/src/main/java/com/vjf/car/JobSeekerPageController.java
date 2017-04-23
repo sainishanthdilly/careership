@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.vjf.Repository.EmployerJobPostRepository;
 import com.vjf.service.EmployerJobPostService;
+import com.vjf.service.JobSeekerJobApplyService;
 import com.vjf.service.JobSeekerService;
 
 @Controller
@@ -22,6 +23,8 @@ public class JobSeekerPageController {
 	EmployerJobPostService employerJobPostService;
 	@Autowired
 	JobSeekerService jobSeekerService;
+	@Autowired
+	JobSeekerJobApplyService jobSeekerJobApplyService;
 	
 	
 	@RequestMapping(value="/vjf/jobseek/applyjobs")
@@ -50,6 +53,11 @@ public class JobSeekerPageController {
 			
 			
 			mp.addAttribute("errorc","eer");
+			
+		}
+		else{
+			
+	//		jobSeekerJobApplyService.processApplyJob( job_post_id, jobseeker_email);
 			
 		}
 		

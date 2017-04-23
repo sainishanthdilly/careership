@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.vjf.Repository.EmployerJobPostRepository;
 import com.vjf.car.model.EmployerJobPostPojo;
+import com.vjf.car.model.JobSeekerJobApplyPojo;
 
 
 @Service
@@ -66,5 +67,7 @@ public class ImplEmployerJobPostService implements EmployerJobPostService {
 		
 		return employerJobPostRepository.editJob(employerJobPostPojo);
 	}
+	
+
 
 }
