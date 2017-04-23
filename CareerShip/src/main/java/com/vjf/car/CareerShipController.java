@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.vjf.Repository.ImpJobSeekerRepository;
+import com.vjf.car.model.EmployerLogin;
+import com.vjf.car.model.EmployerRegistration;
 import com.vjf.car.model.JobSeekerLoginPojo;
-import com.vjf.pojo.EmployerLogin;
-import com.vjf.pojo.EmployerRegistration;
 import com.vjf.service.EmployerService;
 import com.vjf.service.JobSeekerService;
 

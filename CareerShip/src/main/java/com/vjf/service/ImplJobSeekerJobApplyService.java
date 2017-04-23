@@ -16,7 +16,7 @@ public class ImplJobSeekerJobApplyService implements JobSeekerJobApplyService {
 	
 	
 	@Override
-	public boolean processApplyJob( int job_post_id, String jobseeker_email){
+	public boolean processApplyJob(long job_post_id, String jobseeker_email){
 		JobSeekerJobApplyPojo jobSeekerJobApplyPojo= new JobSeekerJobApplyPojo();
 		jobSeekerJobApplyPojo.setJob_post_id(job_post_id);
 		jobSeekerJobApplyPojo.setJobseeker_email(jobseeker_email);

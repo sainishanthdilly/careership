@@ -1,4 +1,4 @@
-package com.vjf.pojo;
+package com.vjf.car.model;
 
 public class JobSeekerLogin {
 	

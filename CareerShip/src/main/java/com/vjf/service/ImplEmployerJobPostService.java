@@ -17,9 +17,6 @@ public class ImplEmployerJobPostService implements EmployerJobPostService {
 	@Autowired
 	private	EmployerJobPostRepository employerJobPostRepository;
 	
-	
-	
-	
 	@Override
 	public List<EmployerJobPostPojo> processGetJobPosts(String email) {
 		// TODO Auto-generated method stub

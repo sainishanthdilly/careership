@@ -34,8 +34,6 @@ public class BackgroundInfoController {
 			bioDataPojo = jobSeekerService.getBioData(session.getAttribute("JobSeekerEmail").toString()); 
 		}
 		
-		
-		
 		return new ModelAndView("backgroundinfo", "jBioData", bioDataPojo );
 		
 	}

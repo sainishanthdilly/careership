@@ -47,8 +47,9 @@ public class JobSeekerPageController {
 	
 	
 	@RequestMapping(value="/vjf/jobseek/verify/applyjob")
-	String jobSeekerCheckApplyJob(ModelMap mp,HttpSession session){
+	String jobSeekerCheckApplyJob(ModelMap mp,HttpSession session,@RequestParam("jobpostid") String id){
 		
+		System.out.println(id);
 		if(!jobSeekerService.checkjEmail(session.getAttribute("JobSeekerEmail").toString())){
 			
 			
@@ -57,7 +58,7 @@ public class JobSeekerPageController {
 		}
 		else{
 			
-	//		jobSeekerJobApplyService.processApplyJob( job_post_id, jobseeker_email);
+			jobSeekerJobApplyService.processApplyJob(Long.parseLong(id), session.getAttribute("JobSeekerEmail").toString());
 			
 		}
 		

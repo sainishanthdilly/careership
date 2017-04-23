@@ -184,7 +184,8 @@ CAREERSHIP
 <div style="overflow-x:auto;">
 <table id="customers">
   <tr id="bye">
-    <th width=700px >Position</th>
+    <th>Job Post Id</th>
+ 	<th width=700px >Position</th>
 	<th>Company</th>
     <th >Location</th>
     <th>Description</th>
@@ -195,12 +196,14 @@ CAREERSHIP
   <c:forEach items="${employerjobs}" var="employerjob">
 			
   <tr>
+    <td>${employerjob.post_id}</td>
     <td><strong><u>${employerjob.title} </u></strong> </br>
 	</td>
+	
 	<td>${employerjob.company_name}</td>
     <td>${employerjob.location} </br>
     <td>${employerjob.desc}</td>
-	<td>  <button type="button"  class="btn btn-success" onclick="window.location.href='/vjf/jobseek/verify/applyjob'">Apply Now</button> </td>
+	<td>  <button type="button"  class="btn btn-success" onclick="window.location.href='/vjf/jobseek/verify/applyjob?jobpostid=${employerjob.post_id}'">Apply Now</button> </td>
 
   </tr>
 
@@ -221,6 +224,7 @@ CAREERSHIP
 </p>
 
 <p> </p>
+	 
 	 
 	 
 	</div>

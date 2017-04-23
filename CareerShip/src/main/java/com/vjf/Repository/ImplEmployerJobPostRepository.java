@@ -149,6 +149,22 @@ public class ImplEmployerJobPostRepository implements EmployerJobPostRepository 
 	        	if(t.next()){
 	        		employerJobPostPojo.setCompany_name(t.getString(1));
 	        	}
+	        	
+	        	PreparedStatement pstm2 = conn.prepareStatement("select job_apply_id from job_apply_id "
+	        			+ " where job_apply_id  =? and jobseeker_email = ?");
+	        	pstm2.setLong(1,  employerJobPostPojo.getPost_id());
+	        	pstm2.setString(2, em);
+	        	
+	        	ResultSet t2 = pstm2.executeQuery();
+	        	if(t2.next()){
+	        		employerJobPostPojo.setAppiled(true);
+	        	}
+	        	else{
+	        		employerJobPostPojo.setAppiled(false);
+	    	        
+	        	}
+
+	        	
 	        	employerJobPostPojos.add(employerJobPostPojo);
 	        	
 							

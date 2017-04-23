@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.vjf.car.model.EmployerJobPostPojo;
-import com.vjf.pojo.EmployerLogin;
+import com.vjf.car.model.EmployerLogin;
 import com.vjf.service.EmployerJobPostService;
 
 @Controller

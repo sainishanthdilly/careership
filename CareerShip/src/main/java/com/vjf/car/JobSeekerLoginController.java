@@ -18,8 +18,8 @@ import org.springframework.web.bind.support.SessionAttributeStore;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.vjf.pojo.JobSeekerLogin;
-import com.vjf.pojo.JobSeekerRegistration;
+import com.vjf.car.model.JobSeekerLogin;
+import com.vjf.car.model.JobSeekerRegistration;
 import com.vjf.service.JobSeekerService;
 
 @Controller
