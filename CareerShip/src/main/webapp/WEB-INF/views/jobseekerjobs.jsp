@@ -203,7 +203,12 @@ CAREERSHIP
 	<td>${employerjob.company_name}</td>
     <td>${employerjob.location} </br>
     <td>${employerjob.desc}</td>
+    <c:if test="${!employer.applied}">
 	<td>  <button type="button"  class="btn btn-success" onclick="window.location.href='/vjf/jobseek/verify/applyjob?jobpostid=${employerjob.post_id}'">Apply Now</button> </td>
+	</c:if>
+	<c:if test="${employer.applied}">
+	<td>  <button type="button" disabled  class="btn btn-success"">Apply Now</button> </td>
+	</c:if>
 
   </tr>
 

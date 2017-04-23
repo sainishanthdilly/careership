@@ -8,9 +8,8 @@ public interface JobSeekerApplyJobRepository {
 
 	
 	void addToShortlist(String add_To_shortlist);
-	
-	
-	
-	
 
+	
+	
+	
 }
