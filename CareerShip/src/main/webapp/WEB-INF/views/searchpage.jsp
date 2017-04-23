@@ -188,11 +188,8 @@ CAREERSHIP
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-         <li><a href="hp.html">Home</a></li>
-        <li><a href="vjf/jobseekerlogin">Job Seeker Login</a></li>
-        <li class="active"><a href="/vjf/jobseekerregistration">Job Seeker Registration</a></li>
-        <li><a href="employerlogin.html">Employer Login</a></li>
-        <li><a href="employerreg.html">Employer SignUp</a></li>
+         <li><a href="/vjf/home">Home</a></li>
+        
       </ul>
       
     </div>
@@ -245,7 +242,7 @@ CAREERSHIP
 	<th>Company</th>
     <th >Location</th>
     <th>Type</th>
-	<th> </th>
+	
 
   </tr>
   
@@ -257,7 +254,7 @@ CAREERSHIP
 	<td> Honeywell </td>
     <td>New York</td>
     <td>Full Time</td>
-	<td>  <button type="button" class="btn btn-success" onclick="alert('Cant Edit')">Apply Now</button> </td>
+	
 
   </tr>
  
@@ -268,7 +265,7 @@ CAREERSHIP
     <td> Big Solutions </td>
 	<td>Boston</td>
     <td>Full Time</td>
-	<td>  <button type="button" class="btn btn-success" onclick="">Apply Now</button> </td>
+	
 	
   </tr>
   <tr>
@@ -278,7 +275,7 @@ CAREERSHIP
     <td> Pink </td>
 	<td>Charlotte</td>
     <td>Part Time</td>
-	<td>  <button type="button" class="btn btn-success" onclick="">Apply Now</button> </td>
+
 	
   </tr>
   

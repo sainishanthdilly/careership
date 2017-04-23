@@ -154,7 +154,7 @@ fieldset.date select:hover
       <ul class="nav navbar-nav">
          <li><a href="/vjf/home">Home</a></li>
          <li><a href="/vjf/job/backgroudinfo">Background information</a></li>
-         <li><a href="/vjf/employer/postjobs">Employer Post Jobs</a></li>
+         <li><a href="/vjf/jobseek/searchjobs">Search Jobs</a></li>
          
       </ul>
       <ul class="nav navbar-nav navbar-right">
