@@ -118,7 +118,7 @@ public class ImplEmployerJobPostRepository implements EmployerJobPostRepository 
 	}
 
 	@Override
-	public List<EmployerJobPostPojo> getALLJobsPosted() {
+	public List<EmployerJobPostPojo> getALLJobsPosted(String jEmail) {
 		// TODO Auto-generated method stub
 		ArrayList<EmployerJobPostPojo> employerJobPostPojos = new ArrayList<>();
 		
@@ -150,10 +150,10 @@ public class ImplEmployerJobPostRepository implements EmployerJobPostRepository 
 	        		employerJobPostPojo.setCompany_name(t.getString(1));
 	        	}
 	        	
-	        	PreparedStatement pstm2 = conn.prepareStatement("select job_apply_id from job_apply_id "
-	        			+ " where job_apply_id  =? and jobseeker_email = ?");
+	        	PreparedStatement pstm2 = conn.prepareStatement("select job_apply_id from JobSeeker_Apply_Job "
+	        			+ " where job_post_id  =? and jobseeker_email = ?");
 	        	pstm2.setLong(1,  employerJobPostPojo.getPost_id());
-	        	pstm2.setString(2, em);
+	        	pstm2.setString(2, jEmail);
 	        	
 	        	ResultSet t2 = pstm2.executeQuery();
 	        	if(t2.next()){
@@ -172,7 +172,8 @@ public class ImplEmployerJobPostRepository implements EmployerJobPostRepository 
 	        
 			}
 			catch (Exception e) {
-				e.printStackTrace();
+				System.out.println(e);
+				//e.printStackTrace();
 			}
 
 		return employerJobPostPojos;

@@ -18,7 +18,7 @@ public class JobSeekerSearchForJobsController {
 	@RequestMapping(value="/vjf/jobseek/searchjobs")
 	String getJobSeekerJobsList(ModelMap mp,HttpSession session){
 		
-		mp.addAttribute("employerjobs",employerJobPostService.processGetALLJobPosts());
+		mp.addAttribute("employerjobs",employerJobPostService.processGetALLJobPosts(session.getAttribute("JobSeekerEmail").toString()));
 		return "searchpage";
 		
 		

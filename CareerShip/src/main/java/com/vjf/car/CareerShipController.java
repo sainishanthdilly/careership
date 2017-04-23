@@ -54,8 +54,6 @@ public class CareerShipController {
 	    		   
 	    	   }
 	    	}
-
-	        
 	  	
 		        return new ModelAndView("employerlogin", "eLogin", new EmployerLogin());
 		 }

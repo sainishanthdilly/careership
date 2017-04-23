@@ -36,9 +36,9 @@ public class ImplEmployerJobPostService implements EmployerJobPostService {
 	}
 
 	@Override
-	public List<EmployerJobPostPojo> processGetALLJobPosts() {
+	public List<EmployerJobPostPojo> processGetALLJobPosts(String jEmail) {
 		// TODO Auto-generated method stub
-		return employerJobPostRepository.getALLJobsPosted();
+		return employerJobPostRepository.getALLJobsPosted(jEmail);
 	}
 
 	@Override

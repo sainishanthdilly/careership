@@ -6,7 +6,7 @@ import com.vjf.car.model.EmployerJobPostPojo;
 
 public interface EmployerJobPostService {
 	
-	public List<EmployerJobPostPojo> processGetALLJobPosts();
+	public List<EmployerJobPostPojo> processGetALLJobPosts(String jEmail);
 	
 	public List<EmployerJobPostPojo> processGetJobPosts(String email);
 	public boolean processAddJobPosts

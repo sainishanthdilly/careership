@@ -30,7 +30,7 @@ public class JobSeekerPageController {
 	@RequestMapping(value="/vjf/jobseek/applyjobs")
 	String jobSeekerSearchPage(ModelMap mp,HttpSession session){
 		
-		mp.addAttribute("employerjobs",employerJobPostService.processGetALLJobPosts());
+		mp.addAttribute("employerjobs",employerJobPostService.processGetALLJobPosts(session.getAttribute("JobSeekerEmail").toString()));
 		return "jobseeker_hp";
 
 	
@@ -39,7 +39,7 @@ public class JobSeekerPageController {
 	@RequestMapping(value="/vjf/jobseek/viewjobs")
 	String getJobSeekerJobsList(ModelMap mp,HttpSession session){
 		
-		mp.addAttribute("employerjobs",employerJobPostService.processGetALLJobPosts());
+		mp.addAttribute("employerjobs",employerJobPostService.processGetALLJobPosts(session.getAttribute("JobSeekerEmail").toString()));
 		return "jobseekerjobs";
 
 	}

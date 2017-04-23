@@ -10,7 +10,7 @@ public interface EmployerJobPostRepository {
 		
 	 public List<EmployerJobPostPojo> getJobsPosted(String eEmail);
 	 
-	 public List<EmployerJobPostPojo> getALLJobsPosted();
+	 public List<EmployerJobPostPojo> getALLJobsPosted(String jEmail);
 	 
 	 public boolean deleteJobPost(long id);
 	 

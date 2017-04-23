@@ -52,7 +52,7 @@ public class JobSeekerFetchJobsToApply {
 		   repo.addJob(employerPostJobTest);
 		   
 		   
-		assertTrue("Fetched Job From DB",repo.getALLJobsPosted().size()>0);	
+		assertTrue("Fetched Job From DB",repo.getALLJobsPosted("testpojo12@adp").size()>0);	
 		
 		
 	}
@@ -83,7 +83,7 @@ public class JobSeekerFetchJobsToApply {
 		   
 		   repo.addJob(employerPostJobTest);
 			
-		   assertTrue("Fetched Job From DB",repo.deleteJobPost(repo.getALLJobsPosted().get(0).getPost_id()));	
+		   assertTrue("Fetched Job From DB",repo.deleteJobPost(repo.getALLJobsPosted("testpojo12@adp").get(0).getPost_id()));	
 		
 		
 	}
