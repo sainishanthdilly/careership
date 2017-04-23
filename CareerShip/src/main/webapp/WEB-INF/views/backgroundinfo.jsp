@@ -183,7 +183,8 @@ fieldset.date select:hover
 	             <div class="form-group" id="labels" style="color:black;"> 
                    <label for="usr">First name:</label>
                      <div class="form-group">  
-                         <form:input path ="jFirstName" type="text" class="form-control" value="${jBioData.jFirstName}" id="usr" placeholder="Enter First name" required="required" />
+                         <form:input path ="jFirstName" type="text" class="form-control" value="${jBioData.jFirstName}" id="usr" placeholder="Enter First name" required="required" 
+                         title="Must Enter the First Name" maxlength="30" />
 	                    </div>
 		    
 	
@@ -191,7 +192,8 @@ fieldset.date select:hover
                    <div class="form-group" id="labels" style="color:black;"> 
                         <label for="usr">Last name:</label>
                           <div class="form-group">  
-                            <form:input type="text" path = "jLastName" value = "${jBioData.jLastName}" class="form-control" id="usr" placeholder="Enter last name" />
+                            <form:input type="text" path = "jLastName" value = "${jBioData.jLastName}" class="form-control" id="usr" placeholder="Enter last name" required="required" 
+                         title="Must Enter the Last Name" maxlength="30"/>
 	                       </div>
 				    
   
@@ -205,7 +207,8 @@ fieldset.date select:hover
                         <label for="num">Phone Number:<span class="form-required">
                          </span></label>
                           <div class="form-group">  
-                            <form:input type="number" value= "${jBioData.jPhone}" path = "jPhone" required="required" class="form-control" id="num" placeholder="Enter phone Number" />
+                            <form:input type="number" value= "${jBioData.jPhone}" path = "jPhone" class="form-control" id="num" placeholder="Enter phone Number" required="required" 
+                         title="Enter the Phone number with 10 digits" maxlength="10" />
 	                       </div>
 	
                    </br>
@@ -231,7 +234,8 @@ fieldset.date select:hover
 	           <div class="form-group" id="labels" style="color:black;"> 
                  <label for="usr">School </label>
                     <div class="form-group">  
-                         <form:input path ="jSchool" value="${jBioData.jSchool}" type="text" class="form-control" id="usr" placeholder="Enter School Name" required="required" />
+                         <form:input path ="jSchool" value="${jBioData.jSchool}" type="text" class="form-control" id="usr" placeholder="Enter School Name" required="required" 
+                         title="Must Enter the School Name" maxlength="50" />
 	                    </div>
 	
   
@@ -239,7 +243,7 @@ fieldset.date select:hover
                   <label for="usr">Degree</label>
  
                        <div class="form-group">  
-                           <form:input type="text" path = "jDegree" value="${jBioData.jDegree}" class="form-control" id="usr" placeholder="Enter Degree" />
+                           <form:input type="text" path = "jDegree" value="${jBioData.jDegree}" class="form-control" id="usr" placeholder="Enter Degree" required="required" title="Must Enter the Degree Name" maxlength="50"/>
 	 
 	                    </div>
 	                   <p class = "help-block">e.g, BA,BS,PhD,JD</p>
@@ -247,7 +251,9 @@ fieldset.date select:hover
 	            <div class="form-group" id="labels" style="color:black;"> 
                      <label for="usr">Field Of Study</label>
                         <div class="form-group">  
-                          <form:input type="text" value = "${jBioData.jFStudy}" path = "jFStudy" class="form-control" id="usr" placeholder="Enter Field of Study" />
+                          <form:input type="text" value = "${jBioData.jFStudy}" path = "jFStudy" class="form-control" id="usr" placeholder="Enter Field of Study"
+                          required="required" 
+                         title="Must Enter the Field of Study" maxlength="30" />
 	                          </div>
                            <p class = "help-block">e.g, Biology,Computer Science, Nursing, Psychology</p>
                <div class="form-group" id="labels" style="color:black;">
@@ -257,7 +263,7 @@ fieldset.date select:hover
                       <fieldset class="date"> 
    
                            <label for="month_start">Month</label> 
-                               <form:select path ="jSStudyMonth" value="${jBioData.jSStudyMonth}"  id="month_start" name="month_start" > 
+                               <form:select path ="jSStudyMonth" value="${jBioData.jSStudyMonth}"  id="month_start" name="month_start" required="required">
                                       <option selected="selected" value="0">Month</option> 
                                          <option>January</option>       
                                         <option>February</option>       
@@ -275,7 +281,7 @@ fieldset.date select:hover
    
   <label for="year_start">Year</label> 
   <form:select path ="jSStudyYear" value="${jBioData.jSStudyYear}" id="year_start" 
-         name="year_start" > 
+         name="year_start" required="required">
 	<option selected="selected" value="0">Year</option>	 
     <option>2004</option> 
 	<option>2005</option> 
@@ -300,7 +306,7 @@ fieldset.date select:hover
    
   <label for="month_end">Month</label> 
   <form:select id="month_end" path="jEStudyMonth" value="${jBioData.jEStudyMonth}"  
-          name="month_end" > 
+          name="month_end" required="required">
     <option selected="selected" value="0">Month</option>
     <option>January</option>       
     <option>February</option>       
@@ -317,7 +323,7 @@ fieldset.date select:hover
   </form:select> -
   <label for="year_end">Year</label> 
   <form:select id="year_end" path="jEStudyYear"  value="${jBioData.jEStudyYear}" 
-         name="year_end" > 
+         name="year_end"  required="required">
 	 <option selected="selected" value="0">Year</option>
 	<option>2004</option> 
 	<option>2005</option> 
@@ -368,14 +374,15 @@ fieldset.date select:hover
 	<div class="form-group" id="labels" style="color:black;"> 
  <label for="usr">Job Title </label>
  <div class="form-group">  
-  <form:input path ="jWJobTitle" value ="${jBioData.jWJobTitle}" type="text" class="form-control" id="usr" placeholder="Enter job title" required="required" />
+  <form:input path ="jWJobTitle" value ="${jBioData.jWJobTitle}" type="text" class="form-control" id="usr" placeholder="Enter job title" required="required" title="Must Enter the Job Title" maxlength="30" />
 	</div>
 	
   
   <div class="form-group" id="labels" style="color:black;"> 
  <label for="usr">Company</label>
    <div class="form-group">  
-  <form:input  type="text" path = "jWCompany" value = "${jBioData.jWCompany}" class="form-control" id="usr" placeholder="Enter Company Name" />
+  <form:input  type="text" path = "jWCompany" value = "${jBioData.jWCompany}" class="form-control" id="usr" placeholder="Enter Company Name" required="required" 
+                         title="Must Enter the Company Name you worked" maxlength="30"/>
 	 
 	</div>
 	
@@ -384,7 +391,7 @@ fieldset.date select:hover
     <label for="CountryId">Country</label>
 	<div class="form-group">
 	
-    <form:select class="form-control GSgd4 fieldWrapper" path="jWCountry" value="{jBioData.jWCountry}"  id="CountryId" name="CountryId">
+    <form:select class="form-control GSgd4 fieldWrapper" path="jWCountry" value="{jBioData.jWCountry}"  id="CountryId" name="CountryId" required="required" >
     <option value="1">Afghanistan</option>
 <option value="2">Albania</option>
 <option value="3">Algeria</option>
@@ -636,7 +643,7 @@ fieldset.date select:hover
 	<div class="form-group" id="labels" style="color:black;"> 
  <label for="usr">City</label>
  <div class="form-group">  
-  <form:input type="text" path = "jWCity" value = "${jBioData.jWCity}" class="form-control" id="usr" placeholder="Enter City name" />
+  <form:input type="text" path = "jWCity" value = "${jBioData.jWCity}" class="form-control" id="usr" placeholder="Enter City name" required="required" title="Must Enter the City Name you worked" maxlength="30" />
 	</div>
 	</div>
    </br>
@@ -648,7 +655,7 @@ fieldset.date select:hover
    
   <label for="month_start">Month</label> 
   <form:select id="month_start" 
-          name="month_start" path="jSWorkMonth" value="${jBioData.jSWorkMonth}" > 
+          name="month_start" path="jSWorkMonth" value="${jBioData.jSWorkMonth}" required="required" > 
      <option selected="selected" value="0">Month</option> 
     <option>January</option>       
     <option>February</option>       
@@ -666,7 +673,7 @@ fieldset.date select:hover
    
   <label for="year_start">Year</label> 
   <form:select path ="jSWorkYear" value ="${jBioData.jSWorkYear}" id="year_start" 
-         name="year_start" > 
+         name="year_start" required="required"> 
 	<option selected="selected" value="0">Year</option>	 
     <option>2004</option> 
 	<option>2005</option> 
@@ -691,7 +698,7 @@ fieldset.date select:hover
    
   <label for="month_end">Month</label> 
   <form:select id="month_end" 
-          name="month_end" path="jEWorkMonth" value="${jBioData.jEWorkMonth}"  > 
+          name="month_end" path="jEWorkMonth" value="${jBioData.jEWorkMonth}" required="required" > 
     <option selected="selected" value="0">Month</option>
     <option>January</option>       
     <option>February</option>       
@@ -708,7 +715,7 @@ fieldset.date select:hover
   </form:select> -
   <label for="year_end">Year</label> 
   <form:select id="year_end" 
-         name="year_end" path="jEWorkYear" value="${jBioData.jEWorkYear}"  > 
+         name="year_end" path="jEWorkYear" value="${jBioData.jEWorkYear}" required="required" > 
 	 <option selected="selected" value="0">Year</option>
 	<option>2004</option> 
 	<option>2005</option> 
@@ -734,7 +741,7 @@ fieldset.date select:hover
 	
 	 <div class="form-group">
       <label for="comment">Job Description:</label>
-      <form:textarea class="form-control" rows="5" value= "${jBioData.jWDescription}" path= "jWDescription" id="comment"></form:textarea>
+      <form:textarea class="form-control" rows="5" value= "${jBioData.jWDescription}" path= "jWDescription" id="comment" required="required" title="Must Enter the description" maxlength="30" ></form:textarea>
     </div>
     
    <br />
