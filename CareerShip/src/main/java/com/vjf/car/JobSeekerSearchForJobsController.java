@@ -19,7 +19,7 @@ public class JobSeekerSearchForJobsController {
 	String getJobSeekerJobsList(ModelMap mp,HttpSession session){
 		
 		mp.addAttribute("employerjobs",employerJobPostService.processGetALLJobPosts());
-		return "jobseekerjobs";
+		return "searchpage";
 		
 		
 

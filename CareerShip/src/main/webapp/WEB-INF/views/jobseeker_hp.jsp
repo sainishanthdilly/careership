@@ -159,6 +159,7 @@ CAREERSHIP
       <ul class="nav navbar-nav">
         <li ><a href="/vjf/home">Home</a></li>
         <li ><a href="/vjf/job/backgroudinfo">Job Seeker Bio Data</a></li>
+        <li ><a href="/vjf/jobseek/searchjobs">Search Jobs</a></li>
         
           </ul>
       <ul class="nav navbar-nav navbar-right">
