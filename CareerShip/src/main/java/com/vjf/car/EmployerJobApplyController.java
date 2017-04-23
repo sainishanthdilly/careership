@@ -38,8 +38,7 @@ public class EmployerJobApplyController {
 
 		mp.addAttribute("employerjobs",employerJobPostService.processGetJobPosts(session.getAttribute("EmployerEmail").toString()));
 	
-		return 
-				"employerjobpost";
+		return "employerjobpost";
 	}
 
 	

@@ -126,8 +126,7 @@ CAREERSHIP
 	<label for="usr">Location:</label>
 	<span class="input-group">
       <span class="input-group-addon"  ><i class="glyphicon glyphicon-home"></i></span>
-      
-	  
+
 	  <form:input type="text" path="location" required="required" class="form-control" id="usr" placeholder="Please enter location"></form:input>
 	  
 	  

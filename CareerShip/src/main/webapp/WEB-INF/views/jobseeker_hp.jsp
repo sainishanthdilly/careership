@@ -158,6 +158,8 @@ CAREERSHIP
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li ><a href="/vjf/home">Home</a></li>
+        <li ><a href="/vjf/job/backgroudinfo">Job Seeker Bio Data</a></li>
+        
           </ul>
       <ul class="nav navbar-nav navbar-right">
 	    <li class="dropdown">

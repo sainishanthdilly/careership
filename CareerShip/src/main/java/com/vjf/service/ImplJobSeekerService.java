@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.vjf.Repository.JobSeekerRepository;
+import com.vjf.car.model.JobSeekerBioDataPojo;
 import com.vjf.car.model.JobSeekerLoginPojo;
 
 
@@ -130,6 +131,57 @@ public class ImplJobSeekerService implements JobSeekerService {
 		// TODO Auto-generated method stub
 		return jobSeekerLoginRepository.checkjEmail(email);
 	}
+	
+	
+	
+	@Override
+	public boolean processBioData(String firstName, String lastName, String email, long phone, String school,
+			String degree, String fStudy, String sStudyMonth, String sStudyYear, String eStudyMonth,
+			String eStudyYear, String wJobTitle, String wCompany, String wCountry, String wCity,
+			String sWorkMonth, String sWorkYear, String eWorkMonth, String eWorkYear,String jDescription) {
+		 JobSeekerBioDataPojo jobSeekerBioDataPojo=new JobSeekerBioDataPojo();
+		 jobSeekerBioDataPojo.setjFirstName(firstName);
+		 jobSeekerBioDataPojo.setjLastName(lastName);
+		 jobSeekerBioDataPojo.setjEmail(email);
+		 jobSeekerBioDataPojo.setjPhone(phone);
+		 jobSeekerBioDataPojo.setjSchool(school);
+		 jobSeekerBioDataPojo.setjDegree(degree);
+		 jobSeekerBioDataPojo.setjFStudy(fStudy);
+		 jobSeekerBioDataPojo.setjSStudyMonth(sStudyMonth);
+		 jobSeekerBioDataPojo.setjSStudyYear(sStudyYear);
+		 jobSeekerBioDataPojo.setjEStudyMonth(eStudyMonth);
+		 jobSeekerBioDataPojo.setjEStudyYear(eStudyYear);
+		 jobSeekerBioDataPojo.setjWJobTitle(wJobTitle);
+		 jobSeekerBioDataPojo.setjWCompany(wCompany);
+		 jobSeekerBioDataPojo.setjWCountry(wCountry);
+		 jobSeekerBioDataPojo.setjWCity(wCity);
+		 jobSeekerBioDataPojo.setjSWorkMonth(sWorkMonth);
+		 jobSeekerBioDataPojo.setjSWorkYear(sWorkYear);
+		 jobSeekerBioDataPojo.setjEWorkMonth(eWorkMonth);
+		 jobSeekerBioDataPojo.setjEWorkYear(eWorkYear);
+		 jobSeekerBioDataPojo.setjWDescription(jDescription);
+		
+		return jobSeekerLoginRepository.addBioData(jobSeekerBioDataPojo);
+	}
+
+
+
+	
+	@Override
+	public boolean checkBioDataExists(String jEmail) {
+
+		return jobSeekerLoginRepository.checkBioDataExists(jEmail);
+	}
+
+
+
+	@Override
+	public JobSeekerBioDataPojo getBioData(String jEmail) {
+		// TODO Auto-generated method stub
+		return jobSeekerLoginRepository.getBioData(jEmail);
+	}
+	
+	
 	
 	
 
