@@ -152,10 +152,8 @@ CAREERSHIP
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="hp.html">Home</a></li>
-        <li class="active"><a href="">Shortlist Candidates</a></li>
-        <li><a href="/vjf/jobseekerregistration"></a></li>
-        <li><a href="employerlogin.html"></a></li>
-        <li><a href="employerreg.html"></a></li>
+        <li class="active"><a href="/vjf/final_shortlist">Shortlist Candidates</a></li>
+        
       </ul>
       <ul class="nav navbar-nav navbar-right">
 	    <li class="dropdown">
@@ -184,19 +182,20 @@ CAREERSHIP
 
 <table id="customers" >
   <tr id="bye"></tr>
+  <c:forEach items="${viewcandidates}" var="viewCandidate">
   <tr>
   <td id="bye">Name	: </td>
-  <td id="bye">Sam Reeves</td>
+  <td id="bye">${viewCandidate.jFirstName}</td>
 
   </tr>
   <tr>
   <td id="bye">Email Id	: </td>
-  <td id="bye">reeves@gmail.com</td>
+  <td id="bye">${viewCandidate.jEmail}</td>
 
   </tr>
   <tr>
   <td id="bye">Phone Number: </td>
-  <td id="bye">1234567890</td>
+  <td id="bye">${viewCandidate.jFirstName}.jPhone</td>
 
   </tr>
   
@@ -217,16 +216,16 @@ CAREERSHIP
   <tr id="bye"></tr>
   <tr>
   <td id="bye">School	:</td>
-  <td id="bye">BITS Pilani</td>
+  <td id="bye">${viewCandidate.jSchool}</td>
     
   </tr>
   <tr>
   <td id="bye">Degree	:</td>
-  <td id="bye">Btech</td>
+  <td id="bye">${viewCandidate.jDegree}</td>
   </tr>
   <tr>
   <td id="bye">Field of Study	:</td>
-  <td id="bye">Computer Science</td>
+  <td id="bye">${viewCandidate.jFStudy}</td>
     
   </tr>
   
@@ -249,24 +248,25 @@ CAREERSHIP
   </tr>
   <tr>
   <td id="bye">Company	:</td>
-  <td id="bye">Amazon</td>
+  <td id="bye">${viewCandidate.jCompany}</td>
 
   </tr>
-  <tr>
-  <td id="bye">Location	:</td>
-  <td id="bye">Hyderabad</td>
-    
-  </tr>
+ 
   <tr>
   <td id="bye">Position	:</td>
-  <td id="bye">Software Developer</td>
+  <td id="bye">${viewCandidate.jWJobTitle}</td>
   </tr>
-  <tr>
-  <td id="bye">Field of Study	:</td>
-  <td id="bye">Computer Science</td>
+   <tr>
+  <td id="bye">Country	:</td>
+  <td id="bye">${viewCandidate.jWCountry}</td>
     
   </tr>
-  
+  <tr>
+  <td id="bye">City:</td>
+  <td id="bye">${viewCandidate.jWCity}</td>
+    
+  </tr>
+ </c:forEach>   
 </table>
 </div>
 	<p><button type="button"  class="btn btn-success" onclick=this.disabled=true;>Shortlist</button> </p> 

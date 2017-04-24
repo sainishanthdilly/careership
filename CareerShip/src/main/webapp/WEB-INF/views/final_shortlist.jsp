@@ -1,10 +1,8 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Virtual Job Fair </title>
+  <title>Final Short list Candidates </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -152,8 +150,8 @@ CAREERSHIP
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="/vjf/home">Home</a></li>
-        <li class="active"><a href="vjf/final_shortlist">Shortlist Candidates</a></li>
+        <li><a href="hp.html">Home</a></li>
+        <li class="active"><a href="/vjf/employer/shortlistcandidates">Shortlist Candidates</a></li>
         
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -161,8 +159,8 @@ CAREERSHIP
         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">MyAccount 
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="jobseekerlogin.html">Job Seeker</a></li>
-          <li><a href="employerlogin.html">Employer</a></li>
+          <li><a href="/vjf/jobseekerlogin">Job Seeker</a></li>
+          <li><a href="/vjf/employerlogin">Employer</a></li>
           
         </ul>
       </li>
@@ -173,40 +171,35 @@ CAREERSHIP
 </nav>
 	 
 	 
-	 <h2 id="hi"><em>Applied Candidates:</em></h2>
+	 <h2 id="hi"><em>Shortlisted Candidates:</em></h2>
 <p id="hi"></p>
 
 <div style="overflow-x:auto;">
 <table id="customers" >
   <tr id="bye">
   <th >Candidate ID</th>
-  <th >Candidate Email</th>
+  <th >Candidate Name</th>
     <th >Position</th> 
     <th>Location</th>
 	<th> </th>
 	<th> </th>
 
   </tr>
-    <c:forEach items="${appliedCandidates}" var="appliedCandidate">
+  <c:forEach items="${shortlistCandidates}" var="shortlistCandidate">
   <tr>
-    <td><strong> ${appliedCandidate.job_apply_id} </strong> <br />
+    <td><strong> ${shortlistCandidate.job_apply_id} </strong> <br />
 	</td>
 	
-    <td>${appliedCandidate.jobSeeker_email} <br /></td>
-    <td>${appliedCandidate.WPosition}</td>
-     <td>${appliedCandidate.WLocation}</td>
-	<td>  <button type="button"  class="btn btn-primary" 
-	onclick="window.location.href='/vjf/employer/editjobs12?job_apply_id=${appliedCandidate.job_apply_id}&jobseeker_email=${appliedCandidate.jobSeeker_email}&job_title=${appliedCandidate.WPosition}&job_loc=${appliedCandidate.WLocation}'">View</button> </td>
-	<td> 
-	 <button type="button"  class="btn btn-danger" onclick="window.location.href='/vjf/employer/deletejobs?post_job_id=${appliedCandidate.job_apply_id}'">Shortlist</button> 
-	 </td>
+    <td>${shortlistCandidate.jobSeeker_email} <br /></td>
+    <td>${shortlistCandidate.WPosition}</td>
+     <td>${shortlistCandidate.WLocation}</td>
+	
   </tr>
-</c:forEach>  
-  
+</c:forEach> 
 </table>
 </div>	
 <p></p>
-	<p> <button type="button" class="btn btn-success" onclick="" href="/vjf/employer/shortlistcandidates">View Shortlisted Candidates</button> </p> 
+	<p> <button type="button" class="btn btn-success" onclick="">Send Email</button> </p> 
 <p> </p>
 	 
 	 
