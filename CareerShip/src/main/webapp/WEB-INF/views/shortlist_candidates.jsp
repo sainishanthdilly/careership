@@ -1,3 +1,6 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -186,18 +189,18 @@ CAREERSHIP
 	<th> </th>
 
   </tr>
-    <c:forEach items="${appliedC}" var="employerjob">
+    <c:forEach items="${appliedCandidates}" var="appliedCandidate">
   <tr>
-    <td><strong> ${appliedC.job_apply_id} </strong> <br />
+    <td><strong> ${appliedCandidate.job_apply_id} </strong> <br />
 	</td>
 	
-    <td>${appliedC.jemail} <br /></td>
-    <td>${appliedC.Wposition}</td>
-     <td>${appliedC.Wlocation}</td>
+    <td>${appliedCandidate.jobSeeker_email} <br /></td>
+    <td>${appliedCandidate.WPosition}</td>
+     <td>${appliedCandidate.WLocation}</td>
 	<td>  <button type="button"  class="btn btn-primary" 
-	onclick="window.location.href='/vjf/employer/editjobs12?job_apply_id=${appliedC.job_apply_id}&jobseeker_email=${appliedC.jemail}&job_title=${appliedC.Wposition}&job_loc=${appliedC.Wlocation}'">View</button> </td>
+	onclick="window.location.href='/vjf/employer/editjobs12?job_apply_id=${appliedCandidate.job_apply_id}&jobseeker_email=${appliedCandidate.jobSeeker_email}&job_title=${appliedCandidate.WPosition}&job_loc=${appliedCandidate.WLocation}'">View</button> </td>
 	<td> 
-	 <button type="button"  class="btn btn-danger" onclick="window.location.href='/vjf/employer/deletejobs?post_job_id=${appliedC.job_apply_id}'">Shortlist</button> 
+	 <button type="button"  class="btn btn-danger" onclick="window.location.href='/vjf/employer/deletejobs?post_job_id=${appliedCandidate.job_apply_id}'">Shortlist</button> 
 	 </td>
   </tr>
 </c:forEach>  

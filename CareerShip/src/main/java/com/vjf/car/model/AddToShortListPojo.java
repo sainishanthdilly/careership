@@ -30,6 +30,47 @@ public class AddToShortListPojo {
 	public void setWLocation(String wLocation) {
 		WLocation = wLocation;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((WLocation == null) ? 0 : WLocation.hashCode());
+		result = prime * result + ((WPosition == null) ? 0 : WPosition.hashCode());
+		result = prime * result + ((jobSeeker_email == null) ? 0 : jobSeeker_email.hashCode());
+		result = prime * result + job_apply_id;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AddToShortListPojo other = (AddToShortListPojo) obj;
+		if (WLocation == null) {
+			if (other.WLocation != null)
+				return false;
+		} else if (!WLocation.equals(other.WLocation))
+			return false;
+		if (WPosition == null) {
+			if (other.WPosition != null)
+				return false;
+		} else if (!WPosition.equals(other.WPosition))
+			return false;
+		if (jobSeeker_email == null) {
+			if (other.jobSeeker_email != null)
+				return false;
+		} else if (!jobSeeker_email.equals(other.jobSeeker_email))
+			return false;
+		if (job_apply_id != other.job_apply_id)
+			return false;
+		return true;
+	}
+	
+	
+	
 
 	
 

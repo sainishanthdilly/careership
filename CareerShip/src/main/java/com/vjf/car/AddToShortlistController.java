@@ -15,13 +15,13 @@ import com.vjf.service.AddToShortlistService;
 public class AddToShortlistController {
 
 	@Autowired
-	AddToShortlistService addToShortListService=new AddToShortlistService();
+	AddToShortlistService addToShortListService;
 	@RequestMapping(value="/vjf/employer/appliedcandidates")
 	String ShowAppliedCandidates(ModelMap mp,HttpSession session){
 		
 		mp.clear();
 
-		mp.addAttribute("appliedCandidates",addToShortListService.processAppliedCandidates(session.getAttribute("JobSeeker_email").toString()));
+		mp.addAttribute("appliedCandidates",addToShortListService.processAppliedCandidates(session.getAttribute("EmployerEmail").toString()));
 	
 		return "shortlist_candidates";
 		
@@ -31,7 +31,7 @@ public class AddToShortlistController {
 		
 		mp.clear();
 
-		mp.addAttribute("shortlistCandidates",addToShortListService.processShortlistCandidates(session.getAttribute("JobSeeker_email").toString()));
+		mp.addAttribute("shortlistCandidates",addToShortListService.processShortlistCandidates(session.getAttribute("EmployerEmail").toString()));
 	
 		return "final_shortlist";//change to finalshortlist
 		

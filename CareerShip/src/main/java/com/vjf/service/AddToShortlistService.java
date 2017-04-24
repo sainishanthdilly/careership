@@ -1,15 +1,13 @@
 package com.vjf.service;
 
-public class AddToShortlistService {
+import java.util.List;
 
-	public Object processAppliedCandidates(String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+import com.vjf.car.model.AddToShortListPojo;
 
-	public Object processShortlistCandidates(String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+public interface AddToShortlistService {
+
+	public List<AddToShortListPojo> processAppliedCandidates(String string);
+
+	public List<AddToShortListPojo> processShortlistCandidates(String string);
 
 }
