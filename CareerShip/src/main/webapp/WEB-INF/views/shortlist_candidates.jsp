@@ -179,72 +179,33 @@ CAREERSHIP
 <table id="customers" >
   <tr id="bye">
   <th >Candidate ID</th>
-  <th >Candidate Name</th>
+  <th >Candidate Email</th>
     <th >Position</th> 
     <th>Location</th>
 	<th> </th>
 	<th> </th>
 
   </tr>
+    <c:forEach items="${appliedC}" var="employerjob">
   <tr>
-  <td>12345</td>
-  <td>Sam Reeves</td>
-    <td><strong>Assistant Manager </strong> </br> </td>
-    <td>Charlotte </br>
-    
-	<td>  <button type="button"  class="btn btn-primary" onclick="">View</button> </td>
-	<td>  <button type="button"  class="btn btn-success" onclick=this.disabled=true;  >Shortlist</button> </td>
+    <td><strong> ${appliedC.job_apply_id} </strong> <br />
+	</td>
 	
-	
-
+    <td>${appliedC.jemail} <br /></td>
+    <td>${appliedC.Wposition}</td>
+     <td>${appliedC.Wlocation}</td>
+	<td>  <button type="button"  class="btn btn-primary" 
+	onclick="window.location.href='/vjf/employer/editjobs12?job_apply_id=${appliedC.job_apply_id}&jobseeker_email=${appliedC.jemail}&job_title=${appliedC.Wposition}&job_loc=${appliedC.Wlocation}'">View</button> </td>
+	<td> 
+	 <button type="button"  class="btn btn-danger" onclick="window.location.href='/vjf/employer/deletejobs?post_job_id=${appliedC.job_apply_id}'">Shortlist</button> 
+	 </td>
   </tr>
-  <tr>
-  <td>12346</td>
-  <td>John Helms</td>
-    <td><strong>SQL Server DBA</strong></br> </td>
-    <td>Texas</td>
-    
-	<td>  <button type="button" class="btn btn-primary" onclick="alert('Cant Edit')">View</button> </td>
-		<td>  <button type="button"  class="btn btn-success" onclick=this.disabled=true;>Shortlist</button> </td>
-	
-  </tr>
-  <tr>
-  <td>12347</td>
-  <td>Max Bryan</td>
-    <td><strong>DevOps Engineer</strong> </br>
-    <td>New York</td>
-   
-	<td>  <button type="button"  class="btn btn-primary" onclick="">View</button> </td>
-	<td>  <button type="button"  class="btn btn-success" onclick=this.disabled=true;>Shortlist</button> </td>
-
-  </tr>
-  <tr>
-  <td>12348</td>
-  <td>Fiona Williams</td>
-    <td><strong>Legal Billing Specialist</strong></br></td>
-	
-    <td>Ohio</td>
-   
-	<td>  <button type="button"  class="btn btn-primary" onclick="">View</button> </td>
-	<td>  <button type="button"  class="btn btn-success" onclick=this.disabled=true;>Shortlist</button> </td>
-	
-  </tr>
-  <tr>
-  <td>12349</td>
-  <td>Sarah Jane</td>
-    <td><strong>SAS Developer </strong></td>
-	
-    <td>Boston</td>
-    
-	<td>  <button type="button"  class="btn btn-primary" onclick="">View</button> </td>
-	<td>  <button type="button"  class="btn btn-success" onclick=this.disabled=true;>Shortlist</button> </td>
-	
-  </tr>
+</c:forEach>  
   
 </table>
 </div>	
 <p></p>
-	<p> <button type="button" class="btn btn-success" onclick="">View Shortlisted Candidates</button> </p> 
+	<p> <button type="button" class="btn btn-success" onclick="" href="/vjf/employer/shortlistcandidates">View Shortlisted Candidates</button> </p> 
 <p> </p>
 	 
 	 

@@ -149,7 +149,7 @@ CAREERSHIP
       <ul class="nav navbar-nav">
         <li><a href="/vjf/home">Home</a></li>
         <li><a href="/vjf/employer/postjobs">Employer Post Jobs</a></li>
-        <li><a href=""> View Applied Candidates</a></li>
+        <li><a href="/vjf/employer/appliedcandidates"> View Applied Candidates</a></li>
       
         </ul>
       <ul class="nav navbar-nav navbar-right">

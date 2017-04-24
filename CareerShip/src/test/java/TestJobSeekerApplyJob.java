@@ -38,7 +38,7 @@ public class TestJobSeekerApplyJob {
 	
 
 	@Test
-	public void testTrue() {
+	public void testFalse() {
 		//jobseeker email
 		JobSeekerLoginPojo jobSeekerLoginPojo=new JobSeekerLoginPojo();
 		jobSeekerLoginPojo.setEmail("nathalapooja@applytest");
@@ -46,6 +46,7 @@ public class TestJobSeekerApplyJob {
 		jobSeekerLoginPojo.setFirst_name("Pooja Reddy");
 		jobSeekerLoginPojo.setMiddle_name(null);
 		jobSeekerLoginPojo.setLast_name("Nathala");
+		
 		
 		assertTrue("Inserted Employer in Database", repo1.addUser(jobSeekerLoginPojo));
 		
@@ -75,9 +76,59 @@ public class TestJobSeekerApplyJob {
 	    jobSeekerApplyPojo.setJob_apply_id(1);
 		jobSeekerApplyPojo.setJob_post_id(1);
 		jobSeekerApplyPojo.setJobseeker_email("nathalapooja@applytest");
+		jobSeekerApplyPojo.setAdd_To_Shortlist("False");
+		
+		
+		
+		assertFalse("Inserted Employer JOB POST in Database", repo.applyPostData(jobSeekerApplyPojo));
+	}
+	
+	@Test
+	public void testTrue() {
+		//jobseeker email
+		JobSeekerLoginPojo jobSeekerLoginPojo=new JobSeekerLoginPojo();
+		jobSeekerLoginPojo.setEmail("nathalapooja@applytest");
+		jobSeekerLoginPojo.setPassword("Pnathala123");
+		jobSeekerLoginPojo.setFirst_name("Pooja Reddy");
+		jobSeekerLoginPojo.setMiddle_name(null);
+		jobSeekerLoginPojo.setLast_name("Nathala");
+		
+		
+		
+		assertTrue("Inserted Employer in Database", repo1.addUser(jobSeekerLoginPojo));
+		
+		// Employer login for posting jobs
+		EmployerLoginPojo employerLoginPojo = new EmployerLoginPojo();
+		   
+		   employerLoginPojo.setCompany_name("ADP ADP");
+		   employerLoginPojo.setEmail("testpojo@adp");
+		   employerLoginPojo.setPhone(1234);
+		   employerLoginPojo.setPassword("adp");
+		  assertTrue("Inserted Employer in Database", repo3.addUser(employerLoginPojo));
+		   
+	// Employer post job for job_post_id
+		   EmployerJobPostPojo employerPostJobTest = new EmployerJobPostPojo();
+		   
+		   employerPostJobTest.setCompany_name("ADP ADP");
+		   employerPostJobTest.setPost_email("testpojo@adp");
+		   employerPostJobTest.setDesc("SQL DEvelpoer full time");
+		   employerPostJobTest.setLocation("New york");
+		   employerPostJobTest.setTitle("DBA ADMIN");
+		   employerPostJobTest.setPost_id(1);
+		   
+		   assertTrue("Inserted Employer JOB POST in Database", repo2.addJob(employerPostJobTest));
+		   
+		   //Jobseeker applying for jobs with references to jobSeeker_login and Employer_job_post
+	JobSeekerJobApplyPojo jobSeekerApplyPojo=new JobSeekerJobApplyPojo();
+	    jobSeekerApplyPojo.setJob_apply_id(1);
+		jobSeekerApplyPojo.setJob_post_id(1);
+		jobSeekerApplyPojo.setJobseeker_email("nathalapooja@applytest");
+		jobSeekerApplyPojo.setAdd_To_Shortlist("False");
+		
 		
 		
 		assertTrue("Inserted Employer JOB POST in Database", repo.applyPostData(jobSeekerApplyPojo));
 	}
+	
 
 }
