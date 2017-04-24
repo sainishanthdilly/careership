@@ -161,8 +161,8 @@ CAREERSHIP
         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">MyAccount 
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="jobseekerlogin.html">Job Seeker</a></li>
-          <li><a href="employerlogin.html">Employer</a></li>
+          <li><a href="/vjf/jobseekerlogin">Job Seeker</a></li>
+          <li><a href="/vjf/employerlogin">Employer</a></li>
           
         </ul>
       </li>
