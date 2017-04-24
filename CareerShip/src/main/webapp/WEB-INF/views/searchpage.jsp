@@ -1,9 +1,11 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Jobseeker Registration</title>
+  <title>Jobseeker Search</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -225,12 +227,20 @@ CAREERSHIP
 	<div class="container">
     <div class="row">    
         <div class="col-xs-8 col-xs-offset-2">
+		    <form action="/vjf/jobseek/searchjobsNormal" method="GET" >
 		    <div class="input-group">
-                <div class="input-group-btn search-panel">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+		    
+		     <select name ="sera2" class="selectpicker">
+  <option>Mustard</option>
+  <option>Ketchup</option>
+  <option>Relish</option>
+</select>
+		     
+                <!-- <div name="selecttitle" class="input-group-btn search-panel">
+                      <button name="selecttitle" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     	<span id="search_concept">Filter by</span> <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
+                    </button> 
+                    <ul  class="dropdown-menu" role="menu">
                       <li><a href="#company">Company</a></li>
                       <li><a href="#location">Location</a></li>
                       <li><a href="#title">Title</a></li>
@@ -238,13 +248,15 @@ CAREERSHIP
                       <li class="divider"></li>
                       <li><a href="#all">Anything</a></li>
                     </ul>
-                </div>
-                <input type="hidden" name="search_param" value="all" id="search_param">         
-                <input type="text" class="form-control" name="x" placeholder="Search term...">
+                </div>   -->
+                <input type="hidden" value="all" id="search_param">         
+                <input type="text"  name="searchQ" class="form-control" placeholder="Search term...">
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
+                
             </div>
+            </form>
         </div>
 	</div>
 </div>
@@ -257,45 +269,25 @@ CAREERSHIP
     <th width=500px >Position</th>
 	<th>Company</th>
     <th >Location</th>
-    <th>Type</th>
-	<th> </th>
+    <th> </th>
 
   </tr>
   
-  <tr>
-    <td><strong><u>DevOps Engineer</u></strong> </br>
-	Description : Our TOP financial client is looking for a DevOps Engineer from an Application Development background to join their team. 
-	 Please Apply Now directly if interested! Automation Engineers are responsible for interfacing with the application development teams.
-	</td>
-	<td> Honeywell </td>
-    <td>New York</td>
-    <td>Full Time</td>
-	
-
-  </tr>
  
-  <tr>
-    <td><strong><u>SAS Developer </u></strong></br>
-	Description : SAS Developer Summary: Signature Consultants is looking for a SAS Developer for an opportunity in Charlotte, NC. 
-	The ideal candidate will be one that has worked within a large enterprise environment and has created BI Solutions with SAS and has prior experience</td>
-    <td> Big Solutions </td>
-	<td>Boston</td>
-    <td>Full Time</td>
-	
-	
-  </tr>
-  <tr>
-    <td><strong><u>Project Manager</u></strong></br>
-	Description : Our client, a Fortune 50 global leader in the financial industry is hiring a Project Manager to join their Change Management 
-	Global Marketing and Corporate Affairs team in Charlotte, NC. This position is specifically geared toward permit to send cases. </td>
-    <td> Pink </td>
-	<td>Charlotte</td>
-    <td>Part Time</td>
-	
-	
+  
+  <c:forEach items="${searchjobs}" var="searchjob">
+   <tr>
+    <td><strong><u>${searchjob.title}</u></strong> </br>
+	${searchjob.desc}
+	</td>
+	<td>${searchjob.company_name}</td>
+    <td>${searchjob.location}</td>
+    
+
   </tr>
   
-  
+ </c:forEach> 
+   
 </table>
 </div>	
 
