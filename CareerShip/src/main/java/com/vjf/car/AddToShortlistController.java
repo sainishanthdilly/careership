@@ -1,5 +1,7 @@
 package com.vjf.car;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,13 +61,39 @@ public class AddToShortlistController {
 
 		//mp.addAttribute("shortlistCandidates",addToShortListService.processShortlistCandidates(session.getAttribute("EmployerEmail").toString()));
 	
+		try{
 		addToShortListService.shortListACandidate(Long.parseLong(id));
 		
 		
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
 		
-		return "shortlist_candidates";//change to finalshortlist
+		
+		return "redirect:/vjf/employer/appliedcandidates";//change to finalshortlist
+		
+	
+	}
+	
+	
+	@RequestMapping(value="/vjf/employer/selectedcandidates/sendemail")
+	String sendEmailShortListedCandidates(ModelMap mp,HttpSession session){
+		
+		try {
+			addToShortListService.sendEmailSelectedCandidates(session.getAttribute("EmployerEmail").toString());
+		} catch (AddressException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e);
+			e.printStackTrace();
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "redirect:/vjf/employer/appliedcandidates";//change to finalshortlist
 		
 	}
+
 
 	
 

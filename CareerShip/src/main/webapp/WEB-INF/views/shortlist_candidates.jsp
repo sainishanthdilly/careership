@@ -213,7 +213,7 @@ CAREERSHIP
 </table>
 </div>	
 <p></p>
-	<p> <button type="button" class="btn btn-success" onclick="" href="/vjf/employer/shortlistcandidates">View Shortlisted Candidates</button> </p> 
+	<p> <button type="button" class="btn btn-success" onclick="window.location.href ='/vjf/employer/shortlistcandidates'">View Shortlisted Candidates</button> </p> 
 <p> </p>
 	 
 	 
