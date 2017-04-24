@@ -11,6 +11,23 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<script>
+
+$(document).ready(function(e){
+    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+		e.preventDefault();
+		var param = $(this).attr("href").replace("#","");
+		var concept = $(this).text();
+		$('.search-panel span#search_concept').text(concept);
+		$('.input-group #search_param').val(param);
+	});
+});
+
+
+</script>
+
+
+
 <style>
 .jumbotron { 
     background-image: url('http://beatwhale.com/images/background.png');
@@ -82,7 +99,7 @@ display: inline;
 }
 
 #customers td, #customers th {
-    border: 1px solid #ddd;
+    border: 0px solid #ddd;
     padding: 8px;
 }
 
@@ -149,7 +166,9 @@ body {
 }	
 	
 	
-	
+body{
+    margin-top:20px;
+}	
 
 </style>
 <body>
@@ -188,50 +207,47 @@ CAREERSHIP
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-         <li><a href="/vjf/home">Home</a></li>
-        
+         <li><a href="hp.html">Home</a></li>
+        <li><a href="/vjf/jobseekerlogin">Job Seeker Login</a></li>
+        <li class="active"><a href="/vjf/jobseekerregistration">Job Seeker Registration</a></li>
+        <li><a href="/vjf/employerlogin">Employer Login</a></li>
+        <li><a href="/vjf/employerregistration">Employer SignUp</a></li>
       </ul>
       
     </div>
   </div>
 </nav>
 
-<div class="container">
 
-	<div class="row">
-		<div class="col-md-12">
-            <div class="input-group" id="adv-search">
-                <input type="text" class="form-control" placeholder="Search for Jobs" />
-                <div class="input-group-btn">
-                    <div class="btn-group" role="group">
-                        <div class="dropdown dropdown-lg">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-                            <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                <form class="form-horizontal" role="form">
-                                  <div class="form-group">
-                                    <label for="filter">Filter by</label>
-                                    <select class="form-control">
-                                        <option value="0" selected>All Jobs</option>
-                                        <option value="1">Company</option>
-                                        <option value="2">Location</option>
-                                        <option value="3">Title</option>
-                                        
-                                    </select>
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="contain">Job</label>
-                                    <input class="form-control" type="text" />
-                                  </div>
-                                  
-                                  <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                                </form>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                    </div>
+
+
+
+	<div class="container">
+    <div class="row">    
+        <div class="col-xs-8 col-xs-offset-2">
+		    <div class="input-group">
+                <div class="input-group-btn search-panel">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    	<span id="search_concept">Filter by</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#company">Company</a></li>
+                      <li><a href="#location">Location</a></li>
+                      <li><a href="#title">Title</a></li>
+                      
+                      <li class="divider"></li>
+                      <li><a href="#all">Anything</a></li>
+                    </ul>
                 </div>
-			
+                <input type="hidden" name="search_param" value="all" id="search_param">         
+                <input type="text" class="form-control" name="x" placeholder="Search term...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
             </div>
+        </div>
+	</div>
+</div>
 			 <h4>Search Results :</h4>
 <p id="hi"></p>
 
@@ -242,7 +258,7 @@ CAREERSHIP
 	<th>Company</th>
     <th >Location</th>
     <th>Type</th>
-	
+	<th> </th>
 
   </tr>
   
@@ -275,7 +291,7 @@ CAREERSHIP
     <td> Pink </td>
 	<td>Charlotte</td>
     <td>Part Time</td>
-
+	
 	
   </tr>
   
