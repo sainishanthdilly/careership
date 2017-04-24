@@ -21,13 +21,20 @@ public class AddToShortlistController {
 		
 		mp.clear();
 
-		mp.addAttribute("employerjobs",addToShortListService.processAppliedCandidates(session.getAttribute("EmployerEmail").toString()));
+		mp.addAttribute("appliedCandidates",addToShortListService.processAppliedCandidates(session.getAttribute("JobSeeker_email").toString()));
 	
-		return "employerjobpost";
+		return "shortlist_candidates";
 		
-		
-
 	}
+	@RequestMapping(value="/vjf/employer/shortlistcandidates")
+	String ShowShortListedCandidates(ModelMap mp,HttpSession session){
+		
+		mp.clear();
+
+		mp.addAttribute("shortlistCandidates",addToShortListService.processShortlistCandidates(session.getAttribute("JobSeeker_email").toString()));
 	
+		return "final_shortlist";//change to finalshortlist
+		
+	}
 	
 }

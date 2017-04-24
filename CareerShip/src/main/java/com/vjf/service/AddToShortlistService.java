@@ -7,4 +7,9 @@ public class AddToShortlistService {
 		return null;
 	}
 
+	public Object processShortlistCandidates(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
