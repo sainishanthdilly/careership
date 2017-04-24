@@ -68,7 +68,7 @@ public class ImplEmplyerShortlistedRepository implements EmplyerShortlistedRepos
 				String location = rs.getString(3);
 				
 				
-				PreparedStatement pstm2 = conn.prepareStatement("Select job_apply_id, jobseeker_email "
+				PreparedStatement pstm2 = conn.prepareStatement("Select job_apply_id, jobseeker_email, add_To_Shortlist "
 						+ "from JobSeeker_Apply_Job where job_post_id = ? ");
 				
 				pstm2.setLong(1, job_post_id);
@@ -79,12 +79,13 @@ public class ImplEmplyerShortlistedRepository implements EmplyerShortlistedRepos
 					addToShortListPojo.setJobSeeker_email(r.getString(2));
 					addToShortListPojo.setWLocation(location);
 					addToShortListPojo.setWPosition(title);
+					addToShortListPojo.setShortListed(r.getString(3).equals("True") ? true : false);
 					addToShortListPojos.add(addToShortListPojo);
 					
 					
+					
+					
 				}
-				
-				
 			
 			}
 
@@ -106,7 +107,76 @@ public class ImplEmplyerShortlistedRepository implements EmplyerShortlistedRepos
 	@Override
 	public List<AddToShortListPojo> processShortlistCandidates(String string) {
 		// TODO Auto-generated method stub
-		return null;
+		   List<AddToShortListPojo> addToShortListPojos = new ArrayList<>();
+			
+			try {
+				PreparedStatement pstm = conn.prepareStatement("Select job_post_id, job_title, job_location, job_post_email "
+						+ "from Employer_Job_POST where job_post_email =? ");
+				
+				
+				pstm.setString(1, string);
+				
+				ResultSet rs  =pstm.executeQuery();
+				
+				while(rs.next()){
+					
+					long job_post_id = rs.getLong(1);
+					String title = rs.getString(2);
+					String location = rs.getString(3);
+					
+					
+					PreparedStatement pstm2 = conn.prepareStatement("Select job_apply_id, jobseeker_email, add_To_Shortlist "
+							+ "from JobSeeker_Apply_Job where job_post_id = ? and add_To_ShortList = ? ");
+					
+					pstm2.setLong(1, job_post_id);
+					pstm2.setString(2, "True");
+					
+					ResultSet r = pstm2.executeQuery();
+					while(r.next()){
+						AddToShortListPojo addToShortListPojo = new AddToShortListPojo();
+						addToShortListPojo.setJob_apply_id(r.getInt(1));
+						addToShortListPojo.setJobSeeker_email(r.getString(2));
+						addToShortListPojo.setWLocation(location);
+						addToShortListPojo.setWPosition(title);
+						addToShortListPojo.setShortListed(r.getString(3).equals("True") ? true : false);
+						addToShortListPojos.add(addToShortListPojo);
+						
+						
+						
+						
+					}
+				
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				System.out.println(e);
+				
+				//e.printStackTrace();
+			}
+			
+			
+			return addToShortListPojos;
+		
+	}
+
+	@Override
+	public void shortListACandidate(long parseLong) {
+		// TODO Auto-generated method stub
+		
+		try {
+			PreparedStatement s = conn.prepareStatement("update JobSeeker_Apply_Job set add_To_Shortlist= ? where job_apply_id = ? ");
+			s.setString(1, "True");
+			s.setLong(2, parseLong);
+		   s.execute();
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
 	}
 
 }

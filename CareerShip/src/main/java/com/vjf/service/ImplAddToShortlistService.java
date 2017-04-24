@@ -26,4 +26,12 @@ public class ImplAddToShortlistService implements AddToShortlistService{
 		return emplyerShortlistedRepository.processShortlistCandidates(string);
 	}
 
+	@Override
+	public void shortListACandidate(long parseLong) {
+		// TODO Auto-generated method stub
+		emplyerShortlistedRepository.shortListACandidate(parseLong);
+		
+		
+	}
+
 }

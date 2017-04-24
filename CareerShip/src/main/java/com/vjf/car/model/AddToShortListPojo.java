@@ -6,6 +6,7 @@ public class AddToShortListPojo {
 	public String jobSeeker_email;
 	public String WPosition;
 	public String WLocation;
+	public boolean shortListed;
 	public int getJob_apply_id() {
 		return job_apply_id;
 	}
@@ -30,6 +31,12 @@ public class AddToShortListPojo {
 	public void setWLocation(String wLocation) {
 		WLocation = wLocation;
 	}
+	public boolean isShortListed() {
+		return shortListed;
+	}
+	public void setShortListed(boolean shortListed) {
+		this.shortListed = shortListed;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -38,6 +45,7 @@ public class AddToShortListPojo {
 		result = prime * result + ((WPosition == null) ? 0 : WPosition.hashCode());
 		result = prime * result + ((jobSeeker_email == null) ? 0 : jobSeeker_email.hashCode());
 		result = prime * result + job_apply_id;
+		result = prime * result + (shortListed ? 1231 : 1237);
 		return result;
 	}
 	@Override
@@ -66,8 +74,11 @@ public class AddToShortListPojo {
 			return false;
 		if (job_apply_id != other.job_apply_id)
 			return false;
+		if (shortListed != other.shortListed)
+			return false;
 		return true;
 	}
+	
 	
 	
 	

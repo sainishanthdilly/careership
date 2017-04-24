@@ -10,5 +10,7 @@ public interface EmplyerShortlistedRepository {
 
 	public List<AddToShortListPojo> processShortlistCandidates(String string);
 
+	public void shortListACandidate(long parseLong);
+
 
 }
