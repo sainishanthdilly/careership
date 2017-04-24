@@ -196,9 +196,16 @@ CAREERSHIP
     <td>${appliedCandidate.WPosition}</td>
      <td>${appliedCandidate.WLocation}</td>
 	<td>  <button type="button"  class="btn btn-primary" 
-	onclick="window.location.href='/vjf/employer/editjobs12?job_apply_id=${appliedCandidate.job_apply_id}&jobseeker_email=${appliedCandidate.jobSeeker_email}&job_title=${appliedCandidate.WPosition}&job_loc=${appliedCandidate.WLocation}'">View</button> </td>
-	<td> 
-	 <button type="button"  class="btn btn-danger" onclick="window.location.href='/vjf/employer/deletejobs?post_job_id=${appliedCandidate.job_apply_id}'">Shortlist</button> 
+	onclick="window.location.href='/vjf/employer/viewAppliedCandidate?job_apply_id=${appliedCandidate.job_apply_id}&jobseeker_email=${appliedCandidate.jobSeeker_email}&job_title=${appliedCandidate.WPosition}&job_loc=${appliedCandidate.WLocation}'">View</button> </td>
+	<td>
+	 <c:if test="${!appliedCandidate.shortListed}">
+	 <button type="button"  class="btn btn-danger" onclick="window.location.href='/vjf/employer/shortListCandidate?job_apply_id=${appliedCandidate.job_apply_id}'">Shortlist</button> 
+	</c:if>
+	<c:if test="${appliedCandidate.shortListed}">
+	<td>  <button type="button" disabled  class="btn btn-danger" >Shortlist</button> </td>
+	</c:if>
+	
+	
 	 </td>
   </tr>
 </c:forEach>  
