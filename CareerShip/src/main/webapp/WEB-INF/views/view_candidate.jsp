@@ -183,16 +183,38 @@ CAREERSHIP
 
 
 <table id="customers" >
-  <tr id="bye">
-  
-    
-
-  </tr>
+  <tr id="bye"></tr>
   <tr>
   <td id="bye">Name	: </td>
   <td id="bye">Sam Reeves</td>
 
   </tr>
+  <tr>
+  <td id="bye">Email Id	: </td>
+  <td id="bye">reeves@gmail.com</td>
+
+  </tr>
+  <tr>
+  <td id="bye">Phone Number: </td>
+  <td id="bye">1234567890</td>
+
+  </tr>
+  
+  
+  </table>
+  </div>
+  
+ <p></p>
+
+	 <h2 id="hi"><em>School Information:</em></h2>
+<p id="hi"></p>
+
+<div >
+<p id="hi"></p>
+
+<div>
+<table id="customers" >
+  <tr id="bye"></tr>
   <tr>
   <td id="bye">School	:</td>
   <td id="bye">BITS Pilani</td>
