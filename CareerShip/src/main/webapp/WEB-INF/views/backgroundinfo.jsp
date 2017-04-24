@@ -199,7 +199,7 @@ fieldset.date select:hover
   
 	               <div>    
 	                 <h3 style="color:black;">Contact Information</h3>
-	                 <p style="color:black;"> Email Address<span><i  class="glyphicon glyphicon-lock"></i></span> only provided to the employers you apply to</p>
+	                 <p style="color:black;"> ${JobSeekerEmail} <span><i  class="glyphicon glyphicon-lock"></i></span> only provided to the employers you apply to</p>
 	
 	                 
 	               </div>
@@ -263,8 +263,18 @@ fieldset.date select:hover
                       <fieldset class="date"> 
    
                            <label for="month_start">Month</label> 
-                               <form:select path ="jSStudyMonth" value="${jBioData.jSStudyMonth}"  id="month_start" name="month_start" required="required">
+                               <form:select path ="jSStudyMonth"  id="month_start" name="month_start" required="required">
+                                    
+                                    <script>
+                                    alert(${ jBioData.jSStudyMonth});
+                                    </script>
+                                      <c:if test="${empty jBioData.jSStudyMonth}" >
                                       <option selected="selected" value="0">Month</option> 
+                                      </c:if>
+                                      <c:if test="${not empty jBioData.jSStudyMonth}" >
+                                      <option selected="selected" value="0"> ${jBioData.jSStudyMonth}</option> 
+                                      </c:if>
+                                      
                                          <option>January</option>       
                                         <option>February</option>       
                                         <option>March</option>       
@@ -280,9 +290,17 @@ fieldset.date select:hover
                                 </form:select> - 
    
   <label for="year_start">Year</label> 
-  <form:select path ="jSStudyYear" value="${jBioData.jSStudyYear}" id="year_start" 
+  <form:select path ="jSStudyYear"  id="year_start" 
          name="year_start" required="required">
-	<option selected="selected" value="0">Year</option>	 
+         
+     <c:if test="${empty jBioData.jSStudyYear}" >
+	<option selected="selected" value="0">Year</option>	
+	</c:if> 
+	 <c:if test="${not empty jBioData.jSStudyYear}" >
+	<option selected="selected" value="0">${jBioData.jSStudyYear}</option>	
+	</c:if> 
+	
+	
     <option>2004</option> 
 	<option>2005</option> 
 	<option>2006</option> 
@@ -305,9 +323,17 @@ fieldset.date select:hover
 <fieldset class="date"> 
    
   <label for="month_end">Month</label> 
-  <form:select id="month_end" path="jEStudyMonth" value="${jBioData.jEStudyMonth}"  
+  <form:select id="month_end" path="jEStudyMonth" 
           name="month_end" required="required">
+    
+    <c:if test="${empty jBioData.jEStudyMonth}" >
     <option selected="selected" value="0">Month</option>
+    </c:if>
+    <c:if test="${not empty jBioData.jEStudyMonth}" >
+    <option selected="selected" value="0">${jBioData.jEStudyMonth}</option>
+    </c:if>
+    
+    
     <option>January</option>       
     <option>February</option>       
     <option>March</option>       
@@ -322,9 +348,17 @@ fieldset.date select:hover
     <option>December</option>       
   </form:select> -
   <label for="year_end">Year</label> 
-  <form:select id="year_end" path="jEStudyYear"  value="${jBioData.jEStudyYear}" 
+  <form:select id="year_end" path="jEStudyYear" 
          name="year_end"  required="required">
+     
+      <c:if test="${empty jBioData.jEStudyYear}" >    
 	 <option selected="selected" value="0">Year</option>
+	 </c:if>
+	 
+      <c:if test="${not empty jBioData.jEStudyYear}" >    
+	 <option selected="selected" value="0">${jBioData.jEStudyYear}</option>
+	 </c:if>
+	 
 	<option>2004</option> 
 	<option>2005</option> 
 	<option>2006</option> 
@@ -391,7 +425,17 @@ fieldset.date select:hover
     <label for="CountryId">Country</label>
 	<div class="form-group">
 	
-    <form:select class="form-control GSgd4 fieldWrapper" path="jWCountry" value="{jBioData.jWCountry}"  id="CountryId" name="CountryId" required="required" >
+    <form:select class="form-control GSgd4 fieldWrapper" path="jWCountry"   id="CountryId" name="CountryId" required="required" >
+    
+          <c:if test="${empty jBioData.jWCountry}" >    
+	 <option selected="selected" value="0">Country</option>
+	 </c:if>
+	 
+      <c:if test="${not empty jBioData.jWCountry}" >    
+	 <option selected="selected" value="0">${jBioData.jWCountry}</option>
+	 </c:if>
+    
+    
     <option value="1">Afghanistan</option>
 <option value="2">Albania</option>
 <option value="3">Algeria</option>
@@ -655,8 +699,13 @@ fieldset.date select:hover
    
   <label for="month_start">Month</label> 
   <form:select id="month_start" 
-          name="month_start" path="jSWorkMonth" value="${jBioData.jSWorkMonth}" required="required" > 
+          name="month_start" path="jSWorkMonth"  required="required" > 
+     <c:if test ="${empty jBioData.jSWorkMonth} ">
      <option selected="selected" value="0">Month</option> 
+     </c:if>
+     <c:if test ="${not empty jBioData.jSWorkMonth} ">
+     <option selected="selected" value="0">${jBioData.jSWorkMonth}</option> 
+     </c:if>
     <option>January</option>       
     <option>February</option>       
     <option>March</option>       
@@ -672,9 +721,18 @@ fieldset.date select:hover
   </form:select> - 
    
   <label for="year_start">Year</label> 
-  <form:select path ="jSWorkYear" value ="${jBioData.jSWorkYear}" id="year_start" 
+  <form:select path ="jSWorkYear"  id="year_start" 
          name="year_start" required="required"> 
+	
+	<c:if test ="${empty jBioData.jSWorkYear}">
 	<option selected="selected" value="0">Year</option>	 
+	</c:if>
+	<c:if test ="${not empty jBioData.jSWorkYear}">
+	<option selected="selected" value="0">${jBioData.jSWorkYear}</option>	 
+	</c:if>
+	
+	
+	
     <option>2004</option> 
 	<option>2005</option> 
 	<option>2006</option> 
@@ -698,8 +756,16 @@ fieldset.date select:hover
    
   <label for="month_end">Month</label> 
   <form:select id="month_end" 
-          name="month_end" path="jEWorkMonth" value="${jBioData.jEWorkMonth}" required="required" > 
+          name="month_end" path="jEWorkMonth"  required="required" > 
+    <c:if test="${empty jBioData.jEWorkMonth} ">
     <option selected="selected" value="0">Month</option>
+    </c:if>
+    
+    <c:if test="${not empty jBioData.jEWorkMonth} ">
+    <option selected="selected" value="0">${jBioData.jEWorkMonth}</option>
+    </c:if>
+    
+    
     <option>January</option>       
     <option>February</option>       
     <option>March</option>       
@@ -716,7 +782,16 @@ fieldset.date select:hover
   <label for="year_end">Year</label> 
   <form:select id="year_end" 
          name="year_end" path="jEWorkYear" value="${jBioData.jEWorkYear}" required="required" > 
+	 
+	  <c:if test="${ empty jBioData.jEWorkYear} ">
 	 <option selected="selected" value="0">Year</option>
+	 </c:if>
+	  <c:if test="${not empty jBioData.jEWorkYear} ">
+	 <option selected="selected" value="0">${jBioData.jEWorkYear}</option>
+	 </c:if>
+	 
+	 
+	 
 	<option>2004</option> 
 	<option>2005</option> 
 	<option>2006</option> 
