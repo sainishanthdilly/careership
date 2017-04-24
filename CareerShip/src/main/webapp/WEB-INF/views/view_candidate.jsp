@@ -1,5 +1,3 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +34,7 @@
 		font-size: 30px;
 		color: white;
 		padding-bottom: 0px;
+		text-align:left;
 	}
 	
 	#bye{
@@ -56,17 +55,18 @@
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	color: white;
     border-collapse: collapse;
-    width: 100%;
+    width: 600px;
+	
 }
 
 #customers td, #customers th {
-    border: 1px solid #ddd;
+    border: 0px solid #ddd;
     padding: 8px;
 }
 
 //#customers tr:nth-child(even){background-color: #f2f2f2;}
 
-#customers tr:hover {background-color: #AFEEEE;}
+
 
 #customers th {
     padding-top: 12px;
@@ -131,7 +131,10 @@ CAREERSHIP
 
 </div>
 </div>
-
+	
+	
+	
+	
 	<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -144,83 +147,110 @@ CAREERSHIP
 	  <img src= "https://thumb1.shutterstock.com/display_pic_with_logo/3278303/552246277/stock-vector-search-job-icon-one-of-set-web-icons-552246277.jpg" width=50px style = "display:inline-block;">
 	  <span style="display: inline-block;" width=50px></span>
 	  </a>
+	  
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="/vjf/home">Home</a></li>
-        <li><a href="/vjf/employer/postjobs">Employer Post Jobs</a></li>
-        <li><a href=""> View Applied Candidates</a></li>
-      
-        </ul>
+        <li><a href="hp.html">Home</a></li>
+        <li class="active"><a href="">Shortlist Candidates</a></li>
+        <li><a href="/vjf/jobseekerregistration"></a></li>
+        <li><a href="employerlogin.html"></a></li>
+        <li><a href="employerreg.html"></a></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
 	    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"> 
-           <c:if test="${not empty EmployerEmail}">
-  			${EmployerEmail} 
-  		</c:if>
-  		<c:if test="${not empty JobSeekerEmail}">
-  			${JobSeekerEmail}
-  			
-  		</c:if>
-  	
-        
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">MyAccount 
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="/vjf/jobseekerlogin">Job Seeker</a></li>
-          <li><a href="/vjf/employerlogin">Employer</a></li>
+          <li><a href="jobseekerlogin.html">Job Seeker</a></li>
+          <li><a href="employerlogin.html">Employer</a></li>
           
         </ul>
       </li>
-        <li><a href="/logout">Logout</a></li>
+        <li><a href="#">Logout</a></li>
       </ul>
     </div>
   </div>
 </nav>
 	 
 	 
-	 <h2 id="hi"><em>Post a Job:</em></h2>
+	 <h2 id="hi"><em>Candidate Info:</em></h2>
+	  
 <p id="hi"></p>
 
-<div style="overflow-x:auto;">
+<div>
+<p id="hi"></p>
+
+
 <table id="customers" >
   <tr id="bye">
-    <th width=700px >Position</th>
-    <th >Job Description</th>
-    <th>Job location</th>
-	<th> </th>
-	<th> </th>
+  
+    
 
   </tr>
-<c:forEach items="${employerjobs}" var="employerjob">
   <tr>
-    <td><strong> ${employerjob.title} </strong> <br />
-	</td>
-	
-    <td>${employerjob.desc} <br />
-    <td>${employerjob.location}</td>
-	<td>  <button type="button"  class="btn btn-primary" 
-	onclick="window.location.href='/vjf/employer/editjobs12?post_job_id=${employerjob.post_id}&job_desc=${employerjob.desc}&job_title=${employerjob.title}&job_loc=${employerjob.location}'">Edit</button> </td>
-	<td> 
-	 <button type="button"  class="btn btn-danger" onclick="window.location.href='/vjf/employer/deletejobs?post_job_id=${employerjob.post_id}'">Delete</button> 
-	 </td>
+  <td id="bye">Name	: </td>
+  <td id="bye">Sam Reeves</td>
+
   </tr>
-</c:forEach>  
+  <tr>
+  <td id="bye">School	:</td>
+  <td id="bye">BITS Pilani</td>
+    
+  </tr>
+  <tr>
+  <td id="bye">Degree	:</td>
+  <td id="bye">Btech</td>
+  </tr>
+  <tr>
+  <td id="bye">Field of Study	:</td>
+  <td id="bye">Computer Science</td>
+    
+  </tr>
   
 </table>
 </div>	
 <p></p>
-	<p> <button type="button" class="btn btn-success" onclick="window.location.href='/vjf/employer/addpostjobs'">Add New Row</button> </p>
-<p> </p>
-<c:if	test="${not empty errorc}">
-  <div	class="alert	alert-danger">
-  Please Verify your email before adding jobs<br	/>
-</div>
-  </c:if>
-  
 
+	 <h2 id="hi"><em>Work Experience:</em></h2>
+<p id="hi"></p>
+
+<div >
+<p id="hi"></p>
+
+<div>
+<table id="customers" >
+  <tr id="bye">
+  
+    
+
+  </tr>
+  <tr>
+  <td id="bye">Company	:</td>
+  <td id="bye">Amazon</td>
+
+  </tr>
+  <tr>
+  <td id="bye">Location	:</td>
+  <td id="bye">Hyderabad</td>
+    
+  </tr>
+  <tr>
+  <td id="bye">Position	:</td>
+  <td id="bye">Software Developer</td>
+  </tr>
+  <tr>
+  <td id="bye">Field of Study	:</td>
+  <td id="bye">Computer Science</td>
+    
+  </tr>
+  
+</table>
+</div>
+	<p><button type="button"  class="btn btn-success" onclick=this.disabled=true;>Shortlist</button> </p> 
+<p> </p>
 	 
 	 
-	</div>
 	</div>
 	</div>
 	</body>
