@@ -23,7 +23,7 @@ public class ImplJobSeekerSearchService implements JobSeekerSearchService{
 	@Override
 	public List<EmployerJobPostPojo> advancedSearch(String search_string, String search_value) {
 		// TODO Auto-generated method stub
-		return null;
+		return jobSeekerSearchRepository.advancedSearch(search_string,search_value);
 	}
 
 }

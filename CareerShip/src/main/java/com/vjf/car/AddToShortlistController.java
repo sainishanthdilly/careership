@@ -13,12 +13,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.vjf.car.model.AddToShortListPojo;
 import com.vjf.service.AddToShortlistService;
+import com.vjf.service.JobSeekerService;
 
 @Controller
 public class AddToShortlistController {
 
 	@Autowired
 	AddToShortlistService addToShortListService;
+	@Autowired
+	JobSeekerService jobSeekerService;
 	@RequestMapping(value="/vjf/employer/appliedcandidates")
 	String ShowAppliedCandidates(ModelMap mp,HttpSession session){
 		
@@ -43,11 +46,11 @@ public class AddToShortlistController {
 	
 	
 	@RequestMapping(value="/vjf/employer/viewAppliedCandidate")
-	String showAppliedCandidate(ModelMap mp,HttpSession session){
+	String showAppliedCandidate(ModelMap mp,HttpSession session,@RequestParam("jobseeker_email") String email){
 		
-		//mp.clear();
+	mp.clear();
 
-		//mp.addAttribute("shortlistCandidates",addToShortListService.processShortlistCandidates(session.getAttribute("EmployerEmail").toString()));
+	mp.addAttribute("viewCandidate",jobSeekerService.getBioData(email));
 	
 		return "view_candidate";//change to finalshortlist
 		

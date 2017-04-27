@@ -97,12 +97,15 @@ public class ImplAddToShortlistService implements AddToShortlistService{
 
 		String html;
 		
+		string  = emplyerShortlistedRepository.getCompanyName(string);
+		
 		message = "Hi, " +
      "Thank you for your interest in  " + string +  
     " Company ! I’m pleased to invite you to participate in the recruiting "
-    + "process for a ________ "
-    + "position based in __________. The first step consists of a phone interview "
-    +" conducted by a member of the Recruiting team and an analytical assessment.";
+    + "process "
+    + ". The first step consists of a phone interview "
+    +" conducted by a member of the Recruiting team and an analytical assessment."+" <br /> <br />"
+    + "Best regards,"+"<br />"+ "Senior Recruiter";
 	    
 	    html = message;
 		
@@ -113,10 +116,6 @@ public class ImplAddToShortlistService implements AddToShortlistService{
 		// sends the e-mail
 		Transport.send(msg);
 
-		
-		
-		
-		
 		
 		
 	}

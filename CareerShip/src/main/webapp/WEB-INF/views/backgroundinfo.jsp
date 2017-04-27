@@ -1,5 +1,4 @@
- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  
  <!DOCTYPE html>
@@ -211,7 +210,7 @@ fieldset.date select:hover
                          title="Enter the Phone number with 10 digits" maxlength="10" />
 	                       </div>
 	
-                   </br>
+                   <br />
                      <button type="Save" class="btn btn-default">Save</button>
                    <br/>
 				 </div>
@@ -265,28 +264,25 @@ fieldset.date select:hover
                            <label for="month_start">Month</label> 
                                <form:select path ="jSStudyMonth"  id="month_start" name="month_start" required="required">
                                     
-                                    <script>
-                                    alert(${ jBioData.jSStudyMonth});
-                                    </script>
                                       <c:if test="${empty jBioData.jSStudyMonth}" >
-                                      <option selected="selected" value="0">Month</option> 
+                                      <form:option selected="selected" value="Month">Month</form:option> 
                                       </c:if>
                                       <c:if test="${not empty jBioData.jSStudyMonth}" >
-                                      <option selected="selected" value="0"> ${jBioData.jSStudyMonth}</option> 
+                                      <form:option selected="selected" value="${jBioData.jSStudyMonth}" > ${jBioData.jSStudyMonth}</form:option> 
                                       </c:if>
                                       
-                                         <option>January</option>       
-                                        <option>February</option>       
-                                        <option>March</option>       
-                                        <option>April</option>       
-                                        <option>May</option>       
-                                         <option>June</option>       
-                                         <option>July</option>
-                                          <option>August</option>       
-                                         <option>September</option>       
-                                         <option>October</option>       
-                                        <option>November</option>       
-    								    <option>December</option>       
+    <form:option value="January">January</form:option>       
+    <form:option value="February">February</form:option>       
+    <form:option value="March">March</form:option>       
+    <form:option value="April">April</form:option>       
+    <form:option value="May">May</form:option>       
+    <form:option value="June">June</form:option>       
+    <form:option value="July">July</form:option>       
+    <form:option value="August">August</form:option>       
+    <form:option value="September">September</form:option>       
+    <form:option value="October">October</form:option>       
+    <form:option value="November">November</form:option>       
+    <form:option value="December">December</form:option>         
                                 </form:select> - 
    
   <label for="year_start">Year</label> 
@@ -294,28 +290,28 @@ fieldset.date select:hover
          name="year_start" required="required">
          
      <c:if test="${empty jBioData.jSStudyYear}" >
-	<option selected="selected" value="0">Year</option>	
+	<form:option selected="selected" value="Year">Year</form:option>	
 	</c:if> 
 	 <c:if test="${not empty jBioData.jSStudyYear}" >
-	<option selected="selected" value="0">${jBioData.jSStudyYear}</option>	
+	<form:option selected="selected" value="${jBioData.jSStudyYear}" >${jBioData.jSStudyYear}</form:option>	
 	</c:if> 
 	
 	
-    <option>2004</option> 
-	<option>2005</option> 
-	<option>2006</option> 
-	<option>2007</option> 
-	<option>2008</option> 
-	<option>2009</option>       
-    <option>2010</option>       
-    <option>2011</option>       
-    <option>2012</option>       
-    <option>2013</option>       
-    <option>2014</option>       
-    <option>2015</option>       
-    <option>2016</option>       
-    <option>2017</option>       
-    <option>2018</option>       
+	<form:option  value="2004">2004</form:option> 
+	<form:option  value="2005">2005</form:option> 
+	<form:option  value="2006">2006</form:option> 
+	<form:option  value="2007">2007</form:option> 
+	<form:option  value="2008">2008</form:option> 
+    <form:option  value="2009">2009</form:option>       
+    <form:option  value="2010">2010</form:option>       
+    <form:option  value="2011">2011</form:option>       
+    <form:option  value="2012">2012</form:option>       
+    <form:option  value="2013">2013</form:option>       
+    <form:option  value="2014">2014</form:option>       
+    <form:option  value="2015">2015</form:option>       
+    <form:option  value="2016">2016</form:option>       
+    <form:option  value="2017">2017</form:option>       
+    <form:option  value="2018">2018</form:option>     
   </form:select> 
   <span class="inst">(Month-Year)</span> 
 </fieldset> 
@@ -327,53 +323,53 @@ fieldset.date select:hover
           name="month_end" required="required">
     
     <c:if test="${empty jBioData.jEStudyMonth}" >
-    <option selected="selected" value="0">Month</option>
+    <form:option selected="selected" value="Month">Month</form:option>
     </c:if>
     <c:if test="${not empty jBioData.jEStudyMonth}" >
-    <option selected="selected" value="0">${jBioData.jEStudyMonth}</option>
+    <form:option selected="selected" value="${jBioData.jEStudyMonth}">${jBioData.jEStudyMonth}</form:option>
     </c:if>
-    
-    
-    <option>January</option>       
-    <option>February</option>       
-    <option>March</option>       
-    <option>April</option>       
-    <option>May</option>       
-    <option>June</option>       
-    <option>July</option>       
-    <option>August</option>       
-    <option>September</option>       
-    <option>October</option>       
-    <option>November</option>       
-    <option>December</option>       
+    <form:option value="January">January</form:option>       
+    <form:option value="February">February</form:option>       
+    <form:option value="March">March</form:option>       
+    <form:option value="April">April</form:option>       
+    <form:option value="May">May</form:option>       
+    <form:option value="June">June</form:option>       
+    <form:option value="July">July</form:option>       
+    <form:option value="August">August</form:option>       
+    <form:option value="September">September</form:option>       
+    <form:option value="October">October</form:option>       
+    <form:option value="November">November</form:option>       
+    <form:option value="December">December</form:option>         
+           
   </form:select> -
   <label for="year_end">Year</label> 
   <form:select id="year_end" path="jEStudyYear" 
          name="year_end"  required="required">
      
       <c:if test="${empty jBioData.jEStudyYear}" >    
-	 <option selected="selected" value="0">Year</option>
+	 <form:option selected="selected" value="Year">Year</form:option>
 	 </c:if>
 	 
       <c:if test="${not empty jBioData.jEStudyYear}" >    
-	 <option selected="selected" value="0">${jBioData.jEStudyYear}</option>
+	 <form:option selected="selected" value="${jBioData.jEStudyYear}">${jBioData.jEStudyYear}</form:option>
 	 </c:if>
 	 
-	<option>2004</option> 
-	<option>2005</option> 
-	<option>2006</option> 
-	<option>2007</option> 
-	<option>2008</option> 
-    <option>2009</option>       
-    <option>2010</option>       
-    <option>2011</option>       
-    <option>2012</option>       
-    <option>2013</option>       
-    <option>2014</option>       
-    <option>2015</option>       
-    <option>2016</option>       
-    <option>2017</option>       
-    <option>2018</option>       
+	 
+	<form:option  value="2004">2004</form:option> 
+	<form:option  value="2005">2005</form:option> 
+	<form:option  value="2006">2006</form:option> 
+	<form:option  value="2007">2007</form:option> 
+	<form:option  value="2008">2008</form:option> 
+    <form:option  value="2009">2009</form:option>       
+    <form:option  value="2010">2010</form:option>       
+    <form:option  value="2011">2011</form:option>       
+    <form:option  value="2012">2012</form:option>       
+    <form:option  value="2013">2013</form:option>       
+    <form:option  value="2014">2014</form:option>       
+    <form:option  value="2015">2015</form:option>       
+    <form:option  value="2016">2016</form:option>       
+    <form:option  value="2017">2017</form:option>       
+    <form:option  value="2018">2018</form:option>             
   </form:select> 
   <span class="inst">(Month-Year)</span> 
 </fieldset> 
@@ -428,257 +424,28 @@ fieldset.date select:hover
     <form:select class="form-control GSgd4 fieldWrapper" path="jWCountry"   id="CountryId" name="CountryId" required="required" >
     
           <c:if test="${empty jBioData.jWCountry}" >    
-	 <option selected="selected" value="0">Country</option>
+	 <form:option selected="selected" value="US">US</form:option>
 	 </c:if>
 	 
       <c:if test="${not empty jBioData.jWCountry}" >    
-	 <option selected="selected" value="0">${jBioData.jWCountry}</option>
+	 <form:option selected="selected" value="${jBioData.jWCountry}" >${jBioData.jWCountry}</form:option>
 	 </c:if>
     
     
-    <option value="1">Afghanistan</option>
-<option value="2">Albania</option>
-<option value="3">Algeria</option>
-<option value="4">Andorra</option>
-<option value="5">Angola</option>
-<option value="176">Anguilla</option>
-<option value="177">Antarctica</option>
-<option value="175">Antigua and Barbuda</option>
-<option value="6">Argentina</option>
-<option value="7">Armenia</option>
-<option value="179">Aruba</option>
-<option value="8">Australia</option>
-<option value="9">Austria</option>
-<option value="10">Azerbaijan</option>
-<option value="11">Bahamas</option>
-<option value="12">Bahrain</option>
-<option value="13">Bangladesh</option>
-<option value="14">Barbados</option>
-<option value="15">Belarus</option>
-<option value="16">Belgium</option>
-<option value="17">Belize</option>
-<option value="18">Benin</option>
-<option value="19">Bermuda</option>
-<option value="20">Bhutan</option>
-<option value="21">Bolivia</option>
-<option value="22">Bosnia-Herzegovina</option>
-<option value="23">Botswana</option>
-<option value="181">Bouvet Island</option>
-<option value="24">Brazil</option>
-<option value="201">British Indian Ocean Territory</option>
-<option value="180">Brunei Darussalam</option>
-<option value="25">Bulgaria</option>
-<option value="26">Burkina Faso</option>
-<option value="27">Burundi</option>
-<option value="28">Cambodia</option>
-<option value="29">Cameroon</option>
-<option value="30">Canada</option>
-<option value="31">Cape Verde</option>
-<option value="32">Cayman Islands</option>
-<option value="33">Central African Republic</option>
-<option value="34">Chad</option>
-<option value="35">Chile</option>
-<option value="36">China</option>
-<option value="185">Christmas Island</option>
-<option value="182">Cocos (Keeling) Islands</option>
-<option value="37">Colombia</option>
-<option value="204">Comoros</option>
-<option value="38">Congo</option>
-<option value="183">Cook Islands</option>
-<option value="39">Costa Rica</option>
-<option value="40">Croatia</option>
-<option value="184">Cuba</option>
-<option value="41">Cyprus</option>
-<option value="42">Czech Republic</option>
-<option value="172">Democratic Republic of Congo</option>
-<option value="43">Denmark</option>
-<option value="44">Djibouti</option>
-<option value="186">Dominica</option>
-<option value="187">Dominican Republic</option>
-<option value="233">East Timor</option>
-<option value="251">East Timor</option>
-<option value="45">Ecuador</option>
-<option value="46">Egypt</option>
-<option value="47">El Salvador</option>
-<option value="48">Equatorial Guinea</option>
-<option value="49">Eritrea</option>
-<option value="50">Estonia</option>
-<option value="51">Ethiopia</option>
-<option value="189">Falkland Islands</option>
-<option value="191">Faroe Islands</option>
-<option value="52">Fiji</option>
-<option value="53">Finland</option>
-<option value="228">Former USSR</option>
-<option value="54">France</option>
-<option value="55">France (European Territory)</option>
-<option value="193">French Guyana</option>
-<option value="230">French Southern Territories</option>
-<option value="56">Gabon</option>
-<option value="57">Gambia</option>
-<option value="58">Georgia</option>
-<option value="59">Germany</option>
-<option value="60">Ghana</option>
-<option value="194">Gibraltar</option>
-<option value="61">Greece</option>
-<option value="195">Greenland</option>
-<option value="192">Grenada</option>
-<option value="196">Guadeloupe (French)</option>
-<option value="198">Guatemala</option>
-<option value="63">Guinea</option>
-<option value="64">Guinea Bissau</option>
-<option value="65">Guyana</option>
-<option value="200">Haiti</option>
-<option value="199">Heard and McDonald Islands</option>
-<option value="66">Honduras</option>
-<option value="67">Hong Kong</option>
-<option value="68">Hungary</option>
-<option value="69">Iceland</option>
-<option value="70">India</option>
-<option value="71">Indonesia</option>
-<option value="72">Iran</option>
-<option value="73">Iraq</option>
-<option value="74">Ireland</option>
-<option value="75">Israel</option>
-<option value="76">Italy</option>
-<option value="77">Ivory Coast</option>
-<option value="202">Jamaica</option>
-<option value="78">Japan</option>
-<option value="79">Jordan</option>
-<option value="80">Kazakhstan</option>
-<option value="81">Kenya</option>
-<option value="203">Kiribati</option>
-<option value="82">Kuwait</option>
-<option value="83">Kyrgyzstan</option>
-<option value="84">Laos</option>
-<option value="85">Latvia</option>
-<option value="86">Lebanon</option>
-<option value="87">Lesotho</option>
-<option value="88">Liberia</option>
-<option value="89">Libya</option>
-<option value="90">Liechtenstein</option>
-<option value="91">Lithuania</option>
-<option value="92">Luxembourg</option>
-<option value="208">Macau</option>
-<option value="93">Macedonia</option>
-<option value="94">Madagascar</option>
-<option value="95">Malawi</option>
-<option value="96">Malaysia</option>
-<option value="97">Maldives</option>
-<option value="98">Mali</option>
-<option value="99">Malta</option>
-<option value="207">Marshall Islands</option>
-<option value="210">Martinique (French)</option>
-<option value="100">Mauritania</option>
-<option value="212">Mauritius</option>
-<option value="241">Mayotte</option>
-<option value="101">Mexico</option>
-<option value="190">Micronesia</option>
-<option value="102">Moldavia</option>
-<option value="103">Monaco</option>
-<option value="104">Mongolia</option>
-<option value="246">Montenegro</option>
-<option value="211">Montserrat</option>
-<option value="105">Morocco</option>
-<option value="106">Mozambique</option>
-<option value="242">Myanmar, Union of (Burma)</option>
-<option value="107">Namibia</option>
-<option value="215">Nauru</option>
-<option value="108">Nepal</option>
-<option value="109">Netherlands</option>
-<option value="110">Netherlands Antilles</option>
-<option value="216">Neutral Zone</option>
-<option value="213">New Caledonia (French)</option>
-<option value="111">New Zealand</option>
-<option value="112">Nicaragua</option>
-<option value="113">Niger</option>
-<option value="114">Nigeria</option>
-<option value="217">Niue</option>
-<option value="214">Norfolk Island</option>
-<option value="115">North Korea</option>
-<option value="209">Northern Mariana Islands</option>
-<option value="116">Norway</option>
-<option value="117">Oman</option>
-<option value="118">Pakistan</option>
-<option value="222">Palau</option>
-<option value="249">Palestinian Territory, Occupied</option>
-<option value="119">Panama</option>
-<option value="219">Papua New Guinea</option>
-<option value="120">Paraguay</option>
-<option value="121">Peru</option>
-<option value="122">Philippines</option>
-<option value="221">Pitcairn Island</option>
-<option value="123">Poland</option>
-<option value="218">Polynesia (French)</option>
-<option value="124">Portugal</option>
-<option value="126">Qatar</option>
-<option value="127">Reunion (French)</option>
-<option value="128">Romania</option>
-<option value="129">Russian Federation</option>
-<option value="130">Rwanda</option>
-<option value="197">S. Georgia &amp; S. Sandwich Islands</option>
-<option value="244">Saint Barth&#233;lemy</option>
-<option value="224">Saint Helena</option>
-<option value="205">Saint Kitts &amp; Nevis Anguilla</option>
-<option value="206">Saint Lucia</option>
-<option value="247">Saint Martin</option>
-<option value="220">Saint Pierre and Miquelon</option>
-<option value="131">Saint Tome and Principe</option>
-<option value="237">Saint Vincent &amp; Grenadines</option>
-<option value="132">Samoa</option>
-<option value="227">San Marino</option>
-<option value="133">Saudi Arabia</option>
-<option value="134">Senegal</option>
-<option value="250">Serbia</option>
-<option value="135">Seychelles</option>
-<option value="136">Sierra Leone</option>
-<option value="137">Singapore</option>
-<option value="138">Slovakia</option>
-<option value="139">Slovenia</option>
-<option value="223">Solomon Islands</option>
-<option value="140">Somalia</option>
-<option value="141">South Africa</option>
-<option value="142">South Korea</option>
-<option value="143">Spain</option>
-<option value="144">Sri Lanka</option>
-<option value="145">Sudan</option>
-<option value="146">Suriname</option>
-<option value="225">Svalbard and Jan Mayen Islands</option>
-<option value="147">Swaziland</option>
-<option value="148">Sweden</option>
-<option value="149">Switzerland</option>
-<option value="150">Syria</option>
-<option value="151">Tadjikistan</option>
-<option value="152">Taiwan</option>
-<option value="153">Tanzania</option>
-<option value="154">Thailand</option>
-<option value="155">Togo</option>
-<option value="231">Tokelau</option>
-<option value="232">Tonga</option>
-<option value="234">Trinidad and Tobago</option>
-<option value="156">Tunisia</option>
-<option value="157">Turkey</option>
-<option value="158">Turkmenistan</option>
-<option value="229">Turks and Caicos Islands</option>
-<option value="235">Tuvalu</option>
-<option value="159">Uganda</option>
-<option value="160">UK</option>
-<option value="161">Ukraine</option>
-<option value="162">United Arab Emirates</option>
-<option value="163">Uruguay</option>
-<option selected="selected" value="164">US</option>
-<option value="236">USA Minor Outlying Islands</option>
-<option value="165">Uzbekistan</option>
-<option value="239">Vanuatu</option>
-<option value="166">Vatican City</option>
-<option value="167">Venezuela</option>
-<option value="168">Vietnam</option>
-<option value="169">Virgin Islands (British)</option>
-<option value="240">Wallis and Futuna Islands</option>
-<option value="188">Western Sahara</option>
-<option value="170">Yemen</option>
-<option value="171">Yugoslavia</option>
-<option value="173">Zambia</option>
-<option value="174">Zimbabwe</option>
+<form:option value="Australia">Australia</form:option>
+<form:option value="Brazil">Brazil</form:option>
+<form:option value="Canada">Canada</form:option>
+<form:option value="China">China</form:option>
+<form:option value="Germany">Germany</form:option>
+<form:option value="India">India</form:option>
+<form:option value="Italy">Italy</form:option>
+<form:option value="Japan">Japan</form:option>
+<form:option value="Mexico">Mexico</form:option>
+<form:option value="New Zealand">New Zealand</form:option>
+<form:option value="UK">UK</form:option>
+<form:option value="US">US</form:option>
+
+
 </form:select>
 
  <!-- Note* try to assig id but it conflicts with location autocomplete result -->
@@ -690,7 +457,7 @@ fieldset.date select:hover
   <form:input type="text" path = "jWCity" value = "${jBioData.jWCity}" class="form-control" id="usr" placeholder="Enter City name" required="required" title="Must Enter the City Name you worked" maxlength="30" />
 	</div>
 	</div>
-   </br>
+   <br />
    <div class="form-group" id="labels" style="color:black;">
    <label for="usr">Time Period </label>
    </div>
@@ -701,53 +468,53 @@ fieldset.date select:hover
   <form:select id="month_start" 
           name="month_start" path="jSWorkMonth"  required="required" > 
      <c:if test ="${empty jBioData.jSWorkMonth} ">
-     <option selected="selected" value="0">Month</option> 
+     <form:option selected="selected" value="Month">Month</form:option> 
      </c:if>
      <c:if test ="${not empty jBioData.jSWorkMonth} ">
-     <option selected="selected" value="0">${jBioData.jSWorkMonth}</option> 
+     <form:option selected="selected" value="${jBioData.jSWorkMonth}" >${jBioData.jSWorkMonth}</form:option> 
      </c:if>
-    <option>January</option>       
-    <option>February</option>       
-    <option>March</option>       
-    <option>April</option>       
-    <option>May</option>       
-    <option>June</option>       
-    <option>July</option>       
-    <option>August</option>       
-    <option>September</option>       
-    <option>October</option>       
-    <option>November</option>       
-    <option>December</option>       
-  </form:select> - 
+    <form:option value="January">January</form:option>       
+    <form:option value="February">February</form:option>       
+    <form:option value="March">March</form:option>       
+    <form:option value="April">April</form:option>       
+    <form:option value="May">May</form:option>       
+    <form:option value="June">June</form:option>       
+    <form:option value="July">July</form:option>       
+    <form:option value="August">August</form:option>       
+    <form:option value="September">September</form:option>       
+    <form:option value="October">October</form:option>       
+    <form:option value="November">November</form:option>       
+    <form:option value="December">December</form:option>       
+  </form:select> 
    
   <label for="year_start">Year</label> 
   <form:select path ="jSWorkYear"  id="year_start" 
          name="year_start" required="required"> 
 	
 	<c:if test ="${empty jBioData.jSWorkYear}">
-	<option selected="selected" value="0">Year</option>	 
+	<form:option selected="selected" value="Year">Year</form:option>	 
 	</c:if>
 	<c:if test ="${not empty jBioData.jSWorkYear}">
-	<option selected="selected" value="0">${jBioData.jSWorkYear}</option>	 
+	<form:option selected="selected" value="${jBioData.jSWorkYear}" >${jBioData.jSWorkYear}</form:option>	 
 	</c:if>
 	
 	
-	
-    <option>2004</option> 
-	<option>2005</option> 
-	<option>2006</option> 
-	<option>2007</option> 
-	<option>2008</option> 
-	<option>2009</option>       
-    <option>2010</option>       
-    <option>2011</option>       
-    <option>2012</option>       
-    <option>2013</option>       
-    <option>2014</option>       
-    <option>2015</option>       
-    <option>2016</option>       
-    <option>2017</option>       
-    <option>2018</option>       
+	 
+	<form:option  value="2004">2004</form:option> 
+	<form:option  value="2005">2005</form:option> 
+	<form:option  value="2006">2006</form:option> 
+	<form:option  value="2007">2007</form:option> 
+	<form:option  value="2008">2008</form:option> 
+    <form:option  value="2009">2009</form:option>       
+    <form:option  value="2010">2010</form:option>       
+    <form:option  value="2011">2011</form:option>       
+    <form:option  value="2012">2012</form:option>       
+    <form:option  value="2013">2013</form:option>       
+    <form:option  value="2014">2014</form:option>       
+    <form:option  value="2015">2015</form:option>       
+    <form:option  value="2016">2016</form:option>       
+    <form:option  value="2017">2017</form:option>       
+    <form:option  value="2018">2018</form:option>        
   </form:select> 
   <span class="inst">(Month-Year)</span> 
 </fieldset> 
@@ -758,58 +525,61 @@ fieldset.date select:hover
   <form:select id="month_end" 
           name="month_end" path="jEWorkMonth"  required="required" > 
     <c:if test="${empty jBioData.jEWorkMonth} ">
-    <option selected="selected" value="0">Month</option>
+    <form:option selected="selected" value="Month">Month</form:option>
     </c:if>
     
     <c:if test="${not empty jBioData.jEWorkMonth} ">
-    <option selected="selected" value="0">${jBioData.jEWorkMonth}</option>
+    <form:option selected="selected" value="${jBioData.jEWorkMonth}" >${jBioData.jEWorkMonth}</form:option>
     </c:if>
     
     
-    <option>January</option>       
-    <option>February</option>       
-    <option>March</option>       
-    <option>April</option>       
-    <option>May</option>       
-    <option>June</option>       
-    <option>July</option>       
-    <option>August</option>       
-    <option>September</option>       
-    <option>October</option>       
-    <option>November</option>       
-    <option>December</option>       
+    <form:option value="January">January</form:option>       
+    <form:option value="February">February</form:option>       
+    <form:option value="March">March</form:option>       
+    <form:option value="April">April</form:option>       
+    <form:option value="May">May</form:option>       
+    <form:option value="June">June</form:option>       
+    <form:option value="July">July</form:option>       
+    <form:option value="August">August</form:option>       
+    <form:option value="September">September</form:option>       
+    <form:option value="October">October</form:option>       
+    <form:option value="November">November</form:option>       
+    <form:option value="December">December</form:option>      
+    
+    
+    
   </form:select> -
   <label for="year_end">Year</label> 
   <form:select id="year_end" 
          name="year_end" path="jEWorkYear" value="${jBioData.jEWorkYear}" required="required" > 
 	 
 	  <c:if test="${ empty jBioData.jEWorkYear} ">
-	 <option selected="selected" value="0">Year</option>
+	 <form:option selected="selected" value="Year">Year</form:option>
 	 </c:if>
 	  <c:if test="${not empty jBioData.jEWorkYear} ">
-	 <option selected="selected" value="0">${jBioData.jEWorkYear}</option>
+	 <form:option selected="selected" value="${jBioData.jEWorkYear}">${jBioData.jEWorkYear}</form:option>
 	 </c:if>
 	 
 	 
 	 
-	<option>2004</option> 
-	<option>2005</option> 
-	<option>2006</option> 
-	<option>2007</option> 
-	<option>2008</option> 
-    <option>2009</option>       
-    <option>2010</option>       
-    <option>2011</option>       
-    <option>2012</option>       
-    <option>2013</option>       
-    <option>2014</option>       
-    <option>2015</option>       
-    <option>2016</option>       
-    <option>2017</option>       
-    <option>2018</option>       
-  <span class="inst">(Month-Year)</span> 
+	<form:option  value="2004">2004</form:option> 
+	<form:option  value="2005">2005</form:option> 
+	<form:option  value="2006">2006</form:option> 
+	<form:option  value="2007">2007</form:option> 
+	<form:option  value="2008">2008</form:option> 
+    <form:option  value="2009">2009</form:option>       
+    <form:option  value="2010">2010</form:option>       
+    <form:option  value="2011">2011</form:option>       
+    <form:option  value="2012">2012</form:option>       
+    <form:option  value="2013">2013</form:option>       
+    <form:option  value="2014">2014</form:option>       
+    <form:option  value="2015">2015</form:option>       
+    <form:option  value="2016">2016</form:option>       
+    <form:option  value="2017">2017</form:option>       
+    <form:option  value="2018">2018</form:option>       
   </form:select> 
-
+  <span class="inst">(Month-Year)</span> 
+ 
 </fieldset> 
 
 	</div>

@@ -12,5 +12,7 @@ public interface EmplyerShortlistedRepository {
 
 	public void shortListACandidate(long parseLong);
 
+	public String getCompanyName(String string);
+
 
 }

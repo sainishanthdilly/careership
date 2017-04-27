@@ -167,7 +167,7 @@ public class ImplJobSeekerSearchRepository implements JobSeekerSearchRepository 
 	private List<EmployerJobPostPojo> compSearch(String search_title, String value) {
 		// TODO Auto-generated method stub
 		
-		ArrayList<EmployerJobPostPojo> employerJobPostPojos=null;
+		ArrayList<EmployerJobPostPojo> employerJobPostPojos= new ArrayList<>();
 		
 		try{
 			PreparedStatement pstm = conn.prepareStatement("select email  from Employer_login where company_name =? ");

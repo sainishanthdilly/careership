@@ -153,21 +153,32 @@ CAREERSHIP
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="/vjf/home">Home</a></li>
-        <li class="active"><a href="vjf/final_shortlist">Shortlist Candidates</a></li>
+        <li class="active"><a href="/vjf/employer/appliedcandidates">View Applied Candidates</a></li>
+        <li class="active"><a href="/vjf/employer/shortlistcandidates">Short List Candidates</a></li>
+        
         
       </ul>
       <ul class="nav navbar-nav navbar-right">
 	    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">MyAccount 
-        <span class="caret"></span></a>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">
+          <c:if test="${not empty EmployerEmail}">
+  			${EmployerEmail} 
+  		</c:if>
+  		<c:if test="${not empty JobSeekerEmail}">
+  			${JobSeekerEmail}
+  			
+  		</c:if>
+        
+         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="/vjf/jobseekerlogin">Job Seeker</a></li>
           <li><a href="/vjf/employerlogin">Employer</a></li>
           
         </ul>
       </li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="/logout">Logout</a></li>
       </ul>
+    
     </div>
   </div>
 </nav>
@@ -202,7 +213,7 @@ CAREERSHIP
 	 <button type="button"  class="btn btn-danger" onclick="window.location.href='/vjf/employer/shortListCandidate?job_apply_id=${appliedCandidate.job_apply_id}'">Shortlist</button> 
 	</c:if>
 	<c:if test="${appliedCandidate.shortListed}">
-	<td>  <button type="button" disabled  class="btn btn-danger" >Shortlist</button> </td>
+	 <button type="button" disabled  class="btn btn-danger" >Shortlist</button> 
 	</c:if>
 	
 	

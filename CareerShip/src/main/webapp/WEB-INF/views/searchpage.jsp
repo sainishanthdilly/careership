@@ -13,20 +13,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<script>
 
-$(document).ready(function(e){
-    $('.search-panel .dropdown-menu').find('a').click(function(e) {
-		e.preventDefault();
-		var param = $(this).attr("href").replace("#","");
-		var concept = $(this).text();
-		$('.search-panel span#search_concept').text(concept);
-		$('.input-group #search_param').val(param);
-	});
-});
-
-
-</script>
 
 
 
@@ -209,13 +196,30 @@ CAREERSHIP
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-         <li><a href="hp.html">Home</a></li>
-        <li><a href="/vjf/jobseekerlogin">Job Seeker Login</a></li>
-        <li class="active"><a href="/vjf/jobseekerregistration">Job Seeker Registration</a></li>
-        <li><a href="/vjf/employerlogin">Employer Login</a></li>
-        <li><a href="/vjf/employerregistration">Employer SignUp</a></li>
+        <li ><a href="/vjf/home">Home</a></li>
+        <li><a href="/vjf/jobseek/applyjobs">Job Seeker Home</a></li>
+        <li ><a href="/vjf/job/backgroudinfo">Job Seeker Bio Data</a></li>
+ 
+          </ul>
+      <ul class="nav navbar-nav navbar-right">
+	    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">
+        <c:if test="${not empty EmployerEmail}">
+  			${EmployerEmail} 
+  		</c:if>
+  		<c:if test="${not empty JobSeekerEmail}">
+  			${JobSeekerEmail}
+  			
+  		</c:if> 
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="jobseekerlogin.html">Job Seeker</a></li>
+          <li><a href="employerlogin.html">Employer</a></li>
+          
+        </ul>
+      </li>
+        <li><a href="/logout">Logout</a></li>
       </ul>
-      
     </div>
   </div>
 </nav>
@@ -225,40 +229,28 @@ CAREERSHIP
 
 
 	<div class="container">
-    <div class="row">    
-        <div class="col-xs-8 col-xs-offset-2">
-		    <form action="/vjf/jobseek/searchjobsNormal" method="GET" >
-		    <div class="input-group">
-		    
-		     <select name ="sera2" class="selectpicker">
-  <option>Mustard</option>
-  <option>Ketchup</option>
-  <option>Relish</option>
-</select>
-		     
-                <!-- <div name="selecttitle" class="input-group-btn search-panel">
-                      <button name="selecttitle" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    	<span id="search_concept">Filter by</span> <span class="caret"></span>
-                    </button> 
-                    <ul  class="dropdown-menu" role="menu">
-                      <li><a href="#company">Company</a></li>
-                      <li><a href="#location">Location</a></li>
-                      <li><a href="#title">Title</a></li>
-                      
-                      <li class="divider"></li>
-                      <li><a href="#all">Anything</a></li>
-                    </ul>
-                </div>   -->
-                <input type="hidden" value="all" id="search_param">         
+    	    <form class="form-inline"  action="/vjf/jobseek/searchjobsNormal" method="GET" >
+		 
+   <div  class="form-group"">
+
+                 
+		
+		<select name ="sera2" class="selectpicker">
+		
+		<ul  class="dropdown-menu" role="menu">
+		 <li> <option><a href="#location">Any Search</a></option></li>
+ 		 <li> <option><a href="#location">Location</a></option></li>
+ 		<li> <option><a href="#Title">Title</a></option></li>
+ 		<li> <option><a href="#Company">Company</a></option></li>
+  		</ul>
+ 		</select>
+               
                 <input type="text"  name="searchQ" class="form-control" placeholder="Search term...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                </span>
+		<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" ></span></button>
                 
-            </div>
-            </form>
-        </div>
-	</div>
+		</div>
+		    </form>
+        
 </div>
 			 <h4>Search Results :</h4>
 <p id="hi"></p>

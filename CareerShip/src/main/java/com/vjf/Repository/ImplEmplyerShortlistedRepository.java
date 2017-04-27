@@ -179,4 +179,27 @@ public class ImplEmplyerShortlistedRepository implements EmplyerShortlistedRepos
 		
 	}
 
+	@Override
+	public String getCompanyName(String string) {
+		// TODO Auto-generated method stub
+	String s= "";
+		try{
+			
+			PreparedStatement pstm = conn.prepareStatement("select company_name  from Employer_login where email =? ");
+        	pstm.setString(1, string);
+        	ResultSet t = pstm.executeQuery();
+        	if(t.next())
+        	{
+        		s = t.getString(1);
+        	}
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+		
+		
+		return s;
+	}
+
 }

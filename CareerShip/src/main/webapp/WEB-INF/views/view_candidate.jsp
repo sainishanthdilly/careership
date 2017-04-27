@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -152,20 +154,29 @@ CAREERSHIP
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="hp.html">Home</a></li>
-        <li class="active"><a href="/vjf/final_shortlist">Shortlist Candidates</a></li>
+        <li class="active"><a href="/vjf/employer/appliedcandidates">View Applied Candidates</a></li>
+        <li class="active"><a href="/vjf/employer/shortlistcandidates">Short List Candidates</a></li>
         
       </ul>
       <ul class="nav navbar-nav navbar-right">
 	    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">MyAccount 
-        <span class="caret"></span></a>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">
+          <c:if test="${not empty EmployerEmail}">
+  			${EmployerEmail} 
+  		</c:if>
+  		<c:if test="${not empty JobSeekerEmail}">
+  			${JobSeekerEmail}
+  			
+  		</c:if>
+        
+         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="jobseekerlogin.html">Job Seeker</a></li>
-          <li><a href="employerlogin.html">Employer</a></li>
+          <li><a href="/vjf/jobseekerlogin">Job Seeker</a></li>
+          <li><a href="/vjf/employerlogin">Employer</a></li>
           
         </ul>
       </li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="/logout">Logout</a></li>
       </ul>
     </div>
   </div>
@@ -182,7 +193,6 @@ CAREERSHIP
 
 <table id="customers" >
   <tr id="bye"></tr>
-  <c:forEach items="${viewcandidates}" var="viewCandidate">
   <tr>
   <td id="bye">Name	: </td>
   <td id="bye">${viewCandidate.jFirstName}</td>
@@ -242,17 +252,11 @@ CAREERSHIP
 <div>
 <table id="customers" >
   <tr id="bye">
-  
     
 
   </tr>
-  <tr>
-  <td id="bye">Company	:</td>
-  <td id="bye">${viewCandidate.jCompany}</td>
-
-  </tr>
- 
-  <tr>
+  
+   <tr>
   <td id="bye">Position	:</td>
   <td id="bye">${viewCandidate.jWJobTitle}</td>
   </tr>
@@ -266,10 +270,15 @@ CAREERSHIP
   <td id="bye">${viewCandidate.jWCity}</td>
     
   </tr>
- </c:forEach>   
+   
 </table>
 </div>
-	<p><button type="button"  class="btn btn-success" onclick=this.disabled=true;>Shortlist</button> </p> 
+	
+     
+	<p><button type="button"  class="btn btn-success" 
+	onclick="window.location.href='/vjf/employer/appliedcandidates'"
+	>Go back to Short list</button> </p> 
+
 <p> </p>
 	 
 	 

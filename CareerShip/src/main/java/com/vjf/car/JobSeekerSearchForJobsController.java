@@ -23,29 +23,27 @@ public class JobSeekerSearchForJobsController {
 	ModelAndView getJobSeekerJobsListStart(ModelMap mp,HttpSession session){
 		
 		return new ModelAndView("searchpage","jobsearch1",new EmployerJobPostPojo());
-		
-		
-
+	
 	}
 	
 	@RequestMapping(value="/vjf/jobseek/searchjobsNormal", method =RequestMethod.GET)
-	String getJobSeekerJobsListNormal(ModelMap mp,@RequestParam("searchQ") String search){
+	String getJobSeekerJobsListNormal(ModelMap mp,@RequestParam("searchQ") String search, @RequestParam("sera2") String search_title){
+	
 		
+		if(search_title.equalsIgnoreCase("Any Search")){
+
 		mp.addAttribute("searchjobs",jobSeekerSearchService.search(search));
+		}
+		else{
+			mp.addAttribute("searchjobs",jobSeekerSearchService.advancedSearch(search_title,search));
+				
+		}
 		return "searchpage";
 		
 
 	}
 	
-	@RequestMapping(value="/vjf/jobseek/searchjobsAdvanced", method =RequestMethod.GET)
-	String getJobSeekerJobsListAdvanced(ModelMap mp,HttpSession session){
-		
-	//	mp.addAttribute("employerjobs",jobSeekerSearchService.advancedSearch());
-		return "searchpage";
-		
-		
-
-	}
+	
 
 
 
