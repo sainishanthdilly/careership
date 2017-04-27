@@ -38,6 +38,8 @@ public class ImplJobSeekerSearchRepository implements JobSeekerSearchRepository 
 		conn = ConnectionFact.GetConn.getConnection();
 		 
 	 }
+	 
+	 
 
 
 	
@@ -92,6 +94,7 @@ public class ImplJobSeekerSearchRepository implements JobSeekerSearchRepository 
 				//e.printStackTrace();
 			}
 
+		
 		return employerJobPostPojos;
 
 
@@ -142,12 +145,12 @@ public class ImplJobSeekerSearchRepository implements JobSeekerSearchRepository 
 				
 		        while(rs.next()){
 		        	EmployerJobPostPojo employerJobPostPojo = new EmployerJobPostPojo();
-		        	//employerJobPostPojo.setCompany_name(company_name);
 		        	employerJobPostPojo.setPost_id(rs.getInt(1));
 		        	employerJobPostPojo.setDesc(rs.getString(2));
 		        	employerJobPostPojo.setTitle(rs.getString(3));
 		        	employerJobPostPojo.setLocation(rs.getString(4));
 		        	String em = rs.getString(5);
+		        	employerJobPostPojo.setCompany_name(getCompanyName(em));
 		        	employerJobPostPojo.setPost_email(em);
 		        	employerJobPostPojos.add(employerJobPostPojo);
 		        	
@@ -220,6 +223,30 @@ public class ImplJobSeekerSearchRepository implements JobSeekerSearchRepository 
 
 		
 		
+	}
+	
+	
+	
+	public String getCompanyName(String string) {
+		// TODO Auto-generated method stub
+	String s= "";
+		try{
+			
+			PreparedStatement pstm = conn.prepareStatement("select company_name  from Employer_login where email =? ");
+        	pstm.setString(1, string);
+        	ResultSet t = pstm.executeQuery();
+        	if(t.next())
+        	{
+        		s = t.getString(1);
+        	}
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+		
+		
+		return s;
 	}
 
 }
