@@ -205,7 +205,7 @@ CAREERSHIP
   </tr>
   <tr>
   <td id="bye">Phone Number: </td>
-  <td id="bye">${viewCandidate.jFirstName}.jPhone</td>
+  <td id="bye">${viewCandidate.jPhone}</td>
 
   </tr>
   

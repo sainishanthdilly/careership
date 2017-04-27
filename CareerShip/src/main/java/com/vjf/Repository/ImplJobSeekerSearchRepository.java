@@ -142,7 +142,7 @@ public class ImplJobSeekerSearchRepository implements JobSeekerSearchRepository 
 				
 		        while(rs.next()){
 		        	EmployerJobPostPojo employerJobPostPojo = new EmployerJobPostPojo();
-		        	
+		        	//employerJobPostPojo.setCompany_name(company_name);
 		        	employerJobPostPojo.setPost_id(rs.getInt(1));
 		        	employerJobPostPojo.setDesc(rs.getString(2));
 		        	employerJobPostPojo.setTitle(rs.getString(3));
@@ -170,12 +170,13 @@ public class ImplJobSeekerSearchRepository implements JobSeekerSearchRepository 
 		ArrayList<EmployerJobPostPojo> employerJobPostPojos= new ArrayList<>();
 		
 		try{
-			PreparedStatement pstm = conn.prepareStatement("select email  from Employer_login where company_name =? ");
-        	pstm.setString(1, value);
+			PreparedStatement pstm = conn.prepareStatement("select email,company_name  from Employer_login where company_name like ? ");
+        	pstm.setString(1, "%"+value+"%");
         
         	ResultSet t = pstm.executeQuery();
         	while(t.next()){
         		String value2  = t.getString(1);
+        		String cmp_name = t.getString(2);
         	
         	
 			
@@ -185,7 +186,7 @@ public class ImplJobSeekerSearchRepository implements JobSeekerSearchRepository 
 					+ "  job_post_email  like ?  ");
 			
 	        
-			stmt.setString(1, "%"+value2+"%");
+			stmt.setString(1, value2);
 			
 			
 			
@@ -195,6 +196,7 @@ public class ImplJobSeekerSearchRepository implements JobSeekerSearchRepository 
 	        while(rs.next()){
 	        	EmployerJobPostPojo employerJobPostPojo = new EmployerJobPostPojo();
 	        	
+	        	employerJobPostPojo.setCompany_name(cmp_name);
 	        	employerJobPostPojo.setPost_id(rs.getInt(1));
 	        	employerJobPostPojo.setDesc(rs.getString(2));
 	        	employerJobPostPojo.setTitle(rs.getString(3));
