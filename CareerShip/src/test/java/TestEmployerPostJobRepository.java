@@ -10,14 +10,14 @@ import com.vjf.car.model.EmployerJobPostPojo;
 import com.vjf.car.model.EmployerLoginPojo;
 import com.vjf.car.model.JobSeekerLoginPojo;
 
-public class EmployerPostJobTest {
+public class TestEmployerPostJobRepository {
 
 	final String DB_URL = "jdbc:mysql://localhost/VJF_MOCK";
 
 	   ImplEmployerJobPostRepository repo = new ImplEmployerJobPostRepository();
 	   ImpEmployerRepository repo1 = new ImpEmployerRepository();
 	
-	public EmployerPostJobTest() {
+	public TestEmployerPostJobRepository() {
 		super();
 		repo.setConnection(DB_URL);
 		repo1.setConnection(DB_URL);

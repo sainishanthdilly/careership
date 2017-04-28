@@ -7,11 +7,11 @@ import org.junit.Test;
 import com.vjf.service.ImplEmployerService;
 import com.vjf.service.ImplJobSeekerService;
 
-public class EmailTest {
+public class TestEmailService {
 	   
 
 	
-	public EmailTest() {
+	public TestEmailService() {
 		super();
 			}
 	

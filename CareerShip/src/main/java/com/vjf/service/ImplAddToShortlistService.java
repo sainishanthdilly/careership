@@ -41,13 +41,13 @@ public class ImplAddToShortlistService implements AddToShortlistService{
 	@Override
 	public List<AddToShortListPojo> processAppliedCandidates(String string) {
 		// TODO Auto-generated method stub
-		return emplyerShortlistedRepository.processAppliedCandidates(string);
+		return emplyerShortlistedRepository.processAppliedCandidates(string);//string employer email
 	}
 
 	@Override
 	public List<AddToShortListPojo> processShortlistCandidates(String string) {
 		// TODO Auto-generated method stub
-		return emplyerShortlistedRepository.processShortlistCandidates(string);
+		return emplyerShortlistedRepository.processShortlistCandidates(string);//string employer email
 	}
 
 	@Override
