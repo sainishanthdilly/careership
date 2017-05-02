@@ -119,6 +119,15 @@ public class TestJobSeekerApplyJob {
 		   
 		   assertTrue("Inserted Employer JOB POST in Database", repo2.addJob(employerPostJobTest));
 		   
+		   
+		   EmployerJobPostPojo employerPostJobTestSele  =  repo2.getJobsPosted("testpojo@adp").get(0);
+		   assertTrue(employerPostJobTestSele.getCompany_name().equals("ADP ADP"));
+		   assertTrue(employerPostJobTestSele.getDesc().equals("SQL DEvelpoer full time"));
+		   assertTrue(employerPostJobTestSele.getLocation().equals("New york"));
+		   assertTrue(employerPostJobTestSele.getTitle().equals("DBA ADMIN"));
+		   
+		   
+		   
 		   //Jobseeker applying for jobs with references to jobSeeker_login and Employer_job_post
 	JobSeekerJobApplyPojo jobSeekerApplyPojo=new JobSeekerJobApplyPojo();
 	    jobSeekerApplyPojo.setJob_apply_id(1);
