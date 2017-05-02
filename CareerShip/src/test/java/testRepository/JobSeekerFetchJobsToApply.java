@@ -50,10 +50,16 @@ public class JobSeekerFetchJobsToApply {
 		   employerPostJobTest.setLocation("New york");
 		   employerPostJobTest.setTitle("Job 1");
 			
-		   repo.addJob(employerPostJobTest);
+		   assertTrue("Inserted position details",repo.addJob(employerPostJobTest));
 		   
 		   
 		assertTrue("Fetched Job From DB",repo.getALLJobsPosted("testpojo12@adp").size()>0);	
+		 
+		   EmployerJobPostPojo employerPostJobTestSele  =  repo.getJobsPosted("testpojo12@adp").get(0);
+		   assertTrue(employerPostJobTestSele.getCompany_name().equals("ADP ADP"));
+		   assertTrue(employerPostJobTestSele.getDesc().equals("SQL DEvelpoer full time"));
+		   assertTrue(employerPostJobTestSele.getLocation().equals("New york"));
+		   assertTrue(employerPostJobTestSele.getTitle().equals("Job 1"));
 		
 		
 	}

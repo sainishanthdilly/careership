@@ -53,16 +53,25 @@ ImpEmployerRepository repo2 = new ImpEmployerRepository();
 		   assertTrue("Inserted Employer in Database", repo2.addUser(employerLoginPojo));
 		   
 	
-		   EmployerJobPostPojo employerPostJobTest = new EmployerJobPostPojo()
-				   ;
-		   
+		   EmployerJobPostPojo employerPostJobTest = new EmployerJobPostPojo();		   
 		   employerPostJobTest.setCompany_name("ADP ADP");
 		   employerPostJobTest.setPost_email("testpojo888@adp");
 		   employerPostJobTest.setDesc("SQL DEvelpoer full time");
 		   employerPostJobTest.setLocation("New york");
 		   employerPostJobTest.setTitle("Job 1");
 		   
-		   repo.addJob(employerPostJobTest);
+		   assertTrue("Inserted position details",repo.addJob(employerPostJobTest));
+		   assertTrue("Fetched Job From DB",repo.getALLJobsPosted("testpojo12@adp").size()>0);	
+			 
+		   EmployerJobPostPojo employerPostJobTestSele  =  repo.getJobsPosted("testpojo888@adp").get(0);
+		   assertTrue(employerPostJobTestSele.getCompany_name().equals("ADP ADP"));
+		   assertTrue(employerPostJobTestSele.getDesc().equals("SQL DEvelpoer full time"));
+		   assertTrue(employerPostJobTestSele.getLocation().equals("New york"));
+		   assertTrue(employerPostJobTestSele.getTitle().equals("Job 1"));
+		
+		   
+		   
+		   
 		   
 		   List<EmployerJobPostPojo> employerJobPostPojosA = new ArrayList<>();
 		   

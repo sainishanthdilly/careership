@@ -1,6 +1,11 @@
 package testRepository;
 import static org.junit.Assert.*;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.junit.Test;
 
 import com.vjf.Repository.ImpEmployerRepository;
@@ -18,6 +23,9 @@ public class TestJobSeekerApplyJob {
 	ImpJobSeekerRepository repo1=new  ImpJobSeekerRepository();
 	ImplEmployerJobPostRepository repo2 = new ImplEmployerJobPostRepository();
 	   ImpEmployerRepository repo3 = new ImpEmployerRepository();
+	   PreparedStatement stmt = null;
+		ResultSet rs=null;
+		public Connection conn = null;
 
 	public TestJobSeekerApplyJob(){
 		super();
@@ -25,6 +33,7 @@ public class TestJobSeekerApplyJob {
 		repo1.setConnection(DB_URL);
 		repo2.setConnection(DB_URL);
 		repo3.setConnection(DB_URL);
+		 conn=repo.conn;
 		
 	}
 	@Test
@@ -39,7 +48,7 @@ public class TestJobSeekerApplyJob {
 	
 
 	@Test
-	public void testFalse() {
+	public void testFalse() throws SQLException {
 		//jobseeker email
 		JobSeekerLoginPojo jobSeekerLoginPojo=new JobSeekerLoginPojo();
 		jobSeekerLoginPojo.setEmail("nathalapooja@applytest");
@@ -49,7 +58,23 @@ public class TestJobSeekerApplyJob {
 		jobSeekerLoginPojo.setLast_name("Nathala");
 		
 		
-		assertTrue("Inserted Employer in Database", repo1.addUser(jobSeekerLoginPojo));
+		assertTrue("Inserted JobSeeker in Database", repo1.addUser(jobSeekerLoginPojo));
+		 
+		   stmt = conn.prepareStatement(" select email, password, first_name, middle_name, "
+					+ " last_name  from JobSeeker_login where email = ? and password = ? ");
+			
+			
+			stmt.setString(1, "nathalapooja@applytest");
+			stmt.setString(2, "Pnathala123");
+			
+			
+			rs= stmt.executeQuery();rs.next();
+			assertEquals("nathalapooja@applytest",rs.getString(1));
+			assertEquals("Pnathala123",rs.getString(2));
+			assertEquals("Pooja Reddy",rs.getString(3));
+			assertEquals(null,rs.getString(4));
+			assertEquals("Nathala",rs.getString(5));
+		
 		
 		// Employer login for posting jobs
 		EmployerLoginPojo employerLoginPojo = new EmployerLoginPojo();
@@ -59,6 +84,18 @@ public class TestJobSeekerApplyJob {
 		   employerLoginPojo.setPhone(1234);
 		   employerLoginPojo.setPassword("adp");
 		  assertTrue("Inserted Employer in Database", repo3.addUser(employerLoginPojo));
+		  stmt = conn.prepareStatement(" select email, password, company_name, phone"
+					+ "   from Employer_login where email = ? and password = ? ");
+			
+			
+			stmt.setString(1, "testpojo@adp");
+			stmt.setString(2, "adp");
+			rs= stmt.executeQuery();
+			rs.next();
+			assertEquals("testpojo@adp",rs.getString(1));
+			assertEquals("adp",rs.getString(2));
+			assertEquals("ADP ADP",rs.getString(3));
+			assertEquals("1234",rs.getString(4));
 		   
 	// Employer post job for job_post_id
 		   EmployerJobPostPojo employerPostJobTest = new EmployerJobPostPojo();
@@ -71,6 +108,14 @@ public class TestJobSeekerApplyJob {
 		   employerPostJobTest.setPost_id(1);
 		   
 		   assertTrue("Inserted Employer JOB POST in Database", repo2.addJob(employerPostJobTest));
+		   assertTrue("Fetched Job From DB",repo2.getALLJobsPosted("testpojo@adp").size()>0);	
+			 
+		   EmployerJobPostPojo employerPostJobTestSele  =  repo2.getJobsPosted("testpojo@adp").get(0);
+		   assertTrue(employerPostJobTestSele.getCompany_name().equals("ADP ADP"));
+		   assertTrue(employerPostJobTestSele.getDesc().equals("SQL DEvelpoer full time"));
+		   assertTrue(employerPostJobTestSele.getLocation().equals("New york"));
+		   assertTrue(employerPostJobTestSele.getTitle().equals("DBA ADMIN"));
+		   
 		   
 		   //Jobseeker applying for jobs with references to jobSeeker_login and Employer_job_post
 	JobSeekerJobApplyPojo jobSeekerApplyPojo=new JobSeekerJobApplyPojo();
@@ -82,6 +127,21 @@ public class TestJobSeekerApplyJob {
 		
 		
 		assertFalse("Inserted Employer JOB POST in Database", repo.applyPostData(jobSeekerApplyPojo));
+		
+		
+		PreparedStatement pstm2 = conn.prepareStatement("Select job_apply_id, jobseeker_email, add_To_Shortlist,job_post_id "
+				+ "from JobSeeker_Apply_Job where job_post_id = ? ");
+		
+		pstm2.setLong(1,1);
+		ResultSet r = pstm2.executeQuery();
+		r.next();
+		assertEquals(1,r.getLong(1));
+		assertEquals("nathalapooja@applytest",r.getString(2));
+		assertEquals("False",r.getString(3));
+        assertEquals(1,r.getLong(4));
+		
+		
+		
 	}
 	
 	@Test

@@ -68,7 +68,7 @@ public class TestAppliedRepository {
 			   employerPostJobTest.setLocation("New york");
 			   employerPostJobTest.setTitle("Job 1");
 			   
-			   repo1.addJob(employerPostJobTest);
+			   assertTrue(repo1.addJob(employerPostJobTest));
 			   JobSeekerLoginPojo jobSeekerLoginPojo=new JobSeekerLoginPojo();
 				jobSeekerLoginPojo.setEmail("nathalapooja123@biodata");
 				jobSeekerLoginPojo.setPassword("Pnathala123");
@@ -76,7 +76,7 @@ public class TestAppliedRepository {
 				jobSeekerLoginPojo.setMiddle_name(null);
 				jobSeekerLoginPojo.setLast_name("Nathala");
 				
-				 repo3.addUser(jobSeekerLoginPojo);
+				 assertTrue(repo3.addUser(jobSeekerLoginPojo));
 				
 				JobSeekerBioDataPojo jobSeekerBioDataPojo= new JobSeekerBioDataPojo();
 				jobSeekerBioDataPojo.setjFirstName("Pooja Reddy");
@@ -98,7 +98,31 @@ public class TestAppliedRepository {
 				jobSeekerBioDataPojo.setjSWorkYear("2014");
 				jobSeekerBioDataPojo.setjEWorkMonth("December");
 				jobSeekerBioDataPojo.setjEWorkYear("2016");
-				repo3.addBioData(jobSeekerBioDataPojo);
+				assertTrue(repo3.addBioData(jobSeekerBioDataPojo));
+				JobSeekerBioDataPojo jobSeekerBioDataPojo1;	
+				jobSeekerBioDataPojo1=repo3.getBioData("nathalapooja123@biodata");
+				assertEquals("Pooja Reddy",jobSeekerBioDataPojo1.getjFirstName());
+				assertEquals("Nathala",jobSeekerBioDataPojo1.getjLastName());
+				assertEquals("nathalapooja123@biodata",jobSeekerBioDataPojo1.getjEmail());
+				assertEquals("123456890",jobSeekerBioDataPojo1.getjPhone());
+				assertEquals("MVSR",jobSeekerBioDataPojo1.getjSchool());
+				assertEquals("B.E",jobSeekerBioDataPojo1.getjDegree());
+				assertEquals("Electronics",jobSeekerBioDataPojo1.getjFStudy());
+				assertEquals("August",jobSeekerBioDataPojo1.getjSStudyMonth());
+				assertEquals("2010",jobSeekerBioDataPojo1.getjSStudyYear());
+				assertEquals("May",jobSeekerBioDataPojo1.getjEStudyMonth());
+				assertEquals("2014",jobSeekerBioDataPojo1.getjEStudyYear());
+				assertEquals("SQL Developer",jobSeekerBioDataPojo1.getjWJobTitle());
+				assertEquals("ADP",jobSeekerBioDataPojo1.getjWCompany());
+				assertEquals("India",jobSeekerBioDataPojo1.getjWCountry());
+				assertEquals("Hyderabad",jobSeekerBioDataPojo1.getjWCity());
+				assertEquals("September",jobSeekerBioDataPojo1.getjSWorkMonth());
+				assertEquals("2014",jobSeekerBioDataPojo1.getjSWorkYear());
+				assertEquals("December",jobSeekerBioDataPojo1.getjEWorkMonth());
+				assertEquals("2016",jobSeekerBioDataPojo1.getjEWorkYear());
+
+
+				
 				
 				JobSeekerJobApplyPojo jobSeekerJobApplyPojo=new JobSeekerJobApplyPojo();
 				//jobSeekerJobApplyPojo.setJob_apply_id(1);
