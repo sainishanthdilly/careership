@@ -193,11 +193,10 @@ CAREERSHIP
 <img id = "abc" src ="http://blogs-images.forbes.com/markmurphy/files/2015/07/job-search.jpg" />
 </p>
 <p> </p>
-<p> <button type="button" class="btn btn-success" onclick="window.location.href='/vjf/jobseek/viewjobs'">APPLY FOR JOB</button> </p> <p> <button type="button" class="btn btn-success" onclick="window.location.href='/vjf/job/backgroudinfo'">ADD BACKGROUND INFO</button> </p>
+<p> <button type="button" class="btn btn-success" onclick="window.location.href='/vjf/jobseek/viewjobs'">APPLY FOR JOB</button> </p>
+ <p> <button type="button" class="btn btn-success" onclick="window.location.href='/vjf/job/backgroudinfo'">ADD BACKGROUND INFO</button> </p>
 </div>	
-<p></p>
-	<p> <button type="button" class="btn btn-success" onclick="">Add New Row</button> </p>
-<p> </p>
+
 	 
 	 
 	</div>

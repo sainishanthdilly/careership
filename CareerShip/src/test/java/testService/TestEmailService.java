@@ -1,3 +1,4 @@
+package testService;
 import static org.junit.Assert.assertTrue;
 
 import javax.mail.MessagingException;
