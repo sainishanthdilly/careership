@@ -23,10 +23,6 @@
     color: #ffffff;
 }
 
-.container { 
-   
-    color: #ffffff;
-}
 
 .navbar-header img {
   float: left;
@@ -57,7 +53,7 @@
 
 	.container { 
    
-    color: #ffffff;
+    color: #0000FF;
 }
 
 #labels{
@@ -231,7 +227,7 @@ CAREERSHIP
 	<div class="container">
     	    <form class="form-inline"  action="/vjf/jobseek/searchjobsNormal" method="GET" >
 		 
-   <div  class="form-group"">
+   <div  class="form-group" >
 
                  
 		

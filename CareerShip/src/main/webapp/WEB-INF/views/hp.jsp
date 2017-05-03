@@ -190,7 +190,13 @@ CAREERSHIP
           
         </ul>
       </li>
-        <li><a href="/logout"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+         <c:if test="${not empty EmployerEmail}">
+  			<li><a href="/logout"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+  		</c:if>
+  		<c:if test="${not empty JobSeekerEmail}">
+  				<li><a href="/logout"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+  		</c:if>
+        
       </ul>
     </div>
   </div>
